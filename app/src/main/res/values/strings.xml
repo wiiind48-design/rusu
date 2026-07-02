@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">留守番電話</string>
+
+    <string name="default_greeting">ただいま電話に出ることができません。発信音のあとに、お名前とご用件をお話しください。</string>
+
+    <!-- メイン画面 -->
+    <string name="status_need_dialer">セットアップが必要です。このアプリを「デフォルトの電話アプリ」に設定してください。</string>
+    <string name="status_need_mic">録音のためにマイクの許可が必要です。</string>
+    <string name="status_ready">留守番電話は有効です。着信があると自動で応答します。</string>
+    <string name="status_disabled">留守番電話はオフになっています。</string>
+    <string name="button_set_default_dialer">デフォルトの電話アプリに設定</string>
+    <string name="button_grant_mic">マイクを許可する</string>
+    <string name="switch_enabled">自動応答</string>
+    <string name="messages_title">伝言メモ</string>
+    <string name="no_messages">伝言はまだありません</string>
+    <string name="settings">設定</string>
+
+    <!-- 伝言 -->
+    <string name="unknown_caller">非通知・不明</string>
+    <string name="delete_title">伝言を削除</string>
+    <string name="delete_message">この伝言を削除しますか?</string>
+    <string name="delete_ok">削除</string>
+    <string name="cancel">キャンセル</string>
+
+    <!-- 設定画面 -->
+    <string name="settings_title">設定</string>
+    <string name="label_delay">応答までの秒数(0〜120秒)</string>
+    <string name="label_max_record">最大録音時間(10〜600秒)</string>
+    <string name="label_greeting">応答メッセージ(自動音声で読み上げられます)</string>
+    <string name="save">保存</string>
+    <string name="saved">保存しました</string>
+    <string name="error_delay">応答までの秒数は0〜120で入力してください</string>
+    <string name="error_max_record">最大録音時間は10〜600で入力してください</string>
+    <string name="error_greeting">応答メッセージを入力してください</string>
+
+    <!-- 通話画面 -->
+    <string name="incoming_call">着信</string>
+    <string name="state_ringing">着信中…</string>
+    <string name="state_ringing_auto">着信中… あと%d秒で留守番電話が応答します</string>
+    <string name="state_dialing">発信中…</string>
+    <string name="state_active">通話中</string>
+    <string name="state_recording">録音中(留守番電話が応答しました)</string>
+    <string name="state_disconnected">通話終了</string>
+    <string name="state_other">通話</string>
+    <string name="answer">応答</string>
+    <string name="hangup">切断</string>
+
+    <!-- ダイヤル画面 -->
+    <string name="dial_hint">電話番号を入力</string>
+    <string name="call">発信</string>
+    <string name="error_call">発信できませんでした</string>
+
+    <!-- 通知 -->
+    <string name="channel_incoming">着信</string>
+    <string name="channel_messages">新しい伝言</string>
+    <string name="new_message_title">新しい伝言があります</string>
+    <string name="new_message_text">%s さんからの伝言を録音しました</string>
+</resources>
