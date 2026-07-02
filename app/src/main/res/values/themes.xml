@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="Theme.Rusuden" parent="Theme.Material3.DayNight.NoActionBar" />
+
+    <style name="DialpadKey" parent="Widget.Material3.Button.TextButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">22sp</item>
+    </style>
 </resources>

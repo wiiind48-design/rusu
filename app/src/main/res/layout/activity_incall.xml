@@ -7,25 +7,84 @@
     android:padding="24dp">
 
     <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
         android:id="@+id/text_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:textSize="32sp"
-        android:textStyle="bold" />
+        android:layout_marginTop="4dp"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/text_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:gravity="center"
-        android:textSize="17sp" />
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/text_dtmf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:textColor="?android:attr/textColorSecondary"
+        android:textSize="20sp" />
 
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_weight="1" />
+
+    <include
+        android:id="@+id/incall_dialpad"
+        layout="@layout/view_dialpad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/controls_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ToggleButton
+            android:id="@+id/button_mute"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/mute"
+            android:textOn="@string/mute_on" />
+
+        <ToggleButton
+            android:id="@+id/button_speaker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:textOff="@string/speaker"
+            android:textOn="@string/speaker_on" />
+
+        <ToggleButton
+            android:id="@+id/button_keypad"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:textOff="@string/keypad"
+            android:textOn="@string/keypad" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/button_answer"
@@ -40,7 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="@color/hangup_red"
         android:text="@string/hangup"
         android:textSize="18sp" />

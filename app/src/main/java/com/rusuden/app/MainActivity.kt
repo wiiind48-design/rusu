@@ -138,7 +138,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun requestPermissions() {
-        val permissions = mutableListOf(Manifest.permission.RECORD_AUDIO)
+        val permissions = mutableListOf(
+            Manifest.permission.RECORD_AUDIO,
+            Manifest.permission.READ_CONTACTS,
+            Manifest.permission.READ_CALL_LOG
+        )
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             permissions.add(Manifest.permission.POST_NOTIFICATIONS)
         }

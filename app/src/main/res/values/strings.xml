@@ -46,10 +46,20 @@
     <string name="answer">応答</string>
     <string name="hangup">切断</string>
 
+    <!-- 通話コントロール -->
+    <string name="mute">ミュート</string>
+    <string name="mute_on">ミュート中</string>
+    <string name="speaker">スピーカー</string>
+    <string name="speaker_on">スピーカー中</string>
+    <string name="keypad">キーパッド</string>
+
     <!-- ダイヤル画面 -->
     <string name="dial_hint">電話番号を入力</string>
     <string name="call">発信</string>
     <string name="error_call">発信できませんでした</string>
+    <string name="history_title">発着信履歴</string>
+    <string name="no_history">履歴はありません</string>
+    <string name="backspace">⌫</string>
 
     <!-- 通知 -->
     <string name="channel_incoming">着信</string>

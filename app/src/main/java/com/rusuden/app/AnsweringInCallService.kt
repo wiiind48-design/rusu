@@ -133,6 +133,23 @@ class AnsweringInCallService : InCallService() {
         CallManager.notifyChanged()
     }
 
+    override fun onCallAudioStateChanged(audioState: CallAudioState) {
+        super.onCallAudioStateChanged(audioState)
+        CallManager.audioState = audioState
+        CallManager.notifyChanged()
+    }
+
+    fun setMute(muted: Boolean) {
+        setMuted(muted)
+    }
+
+    fun setSpeaker(on: Boolean) {
+        setAudioRoute(
+            if (on) CallAudioState.ROUTE_SPEAKER
+            else CallAudioState.ROUTE_WIRED_OR_EARPIECE
+        )
+    }
+
     private fun handleStateChanged(call: Call, state: Int) {
         when (state) {
             Call.STATE_ACTIVE -> {
@@ -308,9 +325,8 @@ class AnsweringInCallService : InCallService() {
             file.delete()
             return
         }
-        val number = call.details?.handle?.schemeSpecificPart
-            ?: getString(R.string.unknown_caller)
-        showNewMessageNotification(number)
+        val number = call.details?.handle?.schemeSpecificPart ?: ""
+        showNewMessageNotification(ContactHelper.displayName(this, number))
     }
 
     private fun hasRecordPermission(): Boolean =
@@ -337,7 +353,7 @@ class AnsweringInCallService : InCallService() {
             this, 0, contentIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
-        val number = CallManager.callNumber().ifEmpty { getString(R.string.unknown_caller) }
+        val number = ContactHelper.displayName(this, CallManager.callNumber())
         val notification = Notification.Builder(this, CHANNEL_INCOMING)
             .setSmallIcon(R.drawable.ic_notification)
             .setContentTitle(getString(R.string.incoming_call))

@@ -39,11 +39,7 @@ class MessageAdapter(
         val item = items[position]
         val context = holder.itemView.context
 
-        holder.number.text = if (item.number == MessageStore.UNKNOWN_NUMBER || item.number.isEmpty()) {
-            context.getString(R.string.unknown_caller)
-        } else {
-            item.number
-        }
+        holder.number.text = ContactHelper.displayName(context, item.number)
         holder.date.text = dateFormat.format(Date(item.timestamp))
         val totalSec = item.durationMs / 1000
         holder.duration.text = String.format(Locale.JAPAN, "%d:%02d", totalSec / 60, totalSec % 60)

@@ -1,6 +1,7 @@
 package com.rusuden.app
 
 import android.telecom.Call
+import android.telecom.CallAudioState
 import java.util.concurrent.CopyOnWriteArrayList
 
 /**
@@ -19,6 +20,9 @@ object CallManager {
 
     @Volatile
     var isRecording: Boolean = false
+
+    @Volatile
+    var audioState: CallAudioState? = null
 
     private val listeners = CopyOnWriteArrayList<() -> Unit>()
 
