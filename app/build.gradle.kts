@@ -11,13 +11,28 @@ android {
         applicationId = "com.rusuden.app"
         minSdk = 26
         targetSdk = 34
-        versionCode = 3
-        versionName = "1.2"
+        versionCode = 4
+        versionName = "1.2.1"
+    }
+
+    // ビルド環境が変わっても同じ署名になるよう、鍵をリポジトリに同梱している。
+    // (個人利用アプリのため。ストア公開する場合は鍵を差し替えて秘匿すること)
+    signingConfigs {
+        create("shared") {
+            storeFile = file("rusuden.keystore")
+            storePassword = "rusuden-local-key"
+            keyAlias = "rusuden"
+            keyPassword = "rusuden-local-key"
+        }
     }
 
     buildTypes {
+        debug {
+            signingConfig = signingConfigs.getByName("shared")
+        }
         release {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.getByName("shared")
         }
     }
 
