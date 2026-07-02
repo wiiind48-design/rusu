@@ -12,8 +12,8 @@ android {
         applicationId = "com.rusuden.app.v2"
         minSdk = 26
         targetSdk = 34
-        versionCode = 5
-        versionName = "1.2.2"
+        versionCode = 6
+        versionName = "1.2.3"
     }
 
     // ビルド環境が変わっても同じ署名になるよう、鍵をリポジトリに同梱している。

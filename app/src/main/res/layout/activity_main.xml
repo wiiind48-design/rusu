@@ -28,6 +28,15 @@
             android:src="@android:drawable/ic_menu_preferences" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/button_open_dialer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/answer_green"
+        android:text="@string/open_dialer"
+        android:textSize="17sp" />
+
     <TextView
         android:id="@+id/text_status"
         android:layout_width="match_parent"

@@ -50,6 +50,10 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SettingsActivity::class.java))
         }
 
+        findViewById<Button>(R.id.button_open_dialer).setOnClickListener {
+            startActivity(Intent(this, DialerActivity::class.java))
+        }
+
         adapter = MessageAdapter(
             onPlay = { message -> togglePlay(message) },
             onDelete = { message -> confirmDelete(message) }
