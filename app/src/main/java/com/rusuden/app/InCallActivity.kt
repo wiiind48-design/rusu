@@ -26,7 +26,13 @@ class InCallActivity : AppCompatActivity() {
     private lateinit var muteButton: ToggleButton
     private lateinit var speakerButton: ToggleButton
     private lateinit var keypadButton: ToggleButton
+    private lateinit var holdButton: ToggleButton
+    private lateinit var recordButton: ToggleButton
+    private lateinit var swapButton: Button
     private lateinit var controlsRow: View
+    private lateinit var controlsRow2: View
+    private lateinit var secondCallBar: View
+    private lateinit var secondCallerText: TextView
     private lateinit var dialpadView: View
 
     private val handler = Handler(Looper.getMainLooper())
@@ -62,7 +68,13 @@ class InCallActivity : AppCompatActivity() {
         muteButton = findViewById(R.id.button_mute)
         speakerButton = findViewById(R.id.button_speaker)
         keypadButton = findViewById(R.id.button_keypad)
+        holdButton = findViewById(R.id.button_hold)
+        recordButton = findViewById(R.id.button_record)
+        swapButton = findViewById(R.id.button_swap)
         controlsRow = findViewById(R.id.controls_row)
+        controlsRow2 = findViewById(R.id.controls_row2)
+        secondCallBar = findViewById(R.id.second_call_bar)
+        secondCallerText = findViewById(R.id.text_second_caller)
         dialpadView = findViewById(R.id.incall_dialpad)
 
         answerButton.setOnClickListener {
@@ -85,6 +97,28 @@ class InCallActivity : AppCompatActivity() {
         }
         keypadButton.setOnClickListener {
             dialpadView.visibility = if (keypadButton.isChecked) View.VISIBLE else View.GONE
+        }
+        holdButton.setOnClickListener {
+            CallManager.service?.toggleHold()
+        }
+        recordButton.setOnClickListener {
+            val service = CallManager.service
+            if (recordButton.isChecked) {
+                if (service?.startManualRecording() != true) {
+                    recordButton.isChecked = false
+                }
+            } else {
+                service?.stopManualRecording()
+            }
+        }
+        swapButton.setOnClickListener {
+            CallManager.service?.swapCalls()
+        }
+        findViewById<Button>(R.id.button_answer_second).setOnClickListener {
+            CallManager.service?.answerSecondCall()
+        }
+        findViewById<Button>(R.id.button_reject_second).setOnClickListener {
+            CallManager.service?.rejectSecondCall()
         }
 
         Dialpad.bind(dialpadView) { ch -> sendDtmf(ch) }
@@ -135,11 +169,40 @@ class InCallActivity : AppCompatActivity() {
 
         val state = CallManager.callState()
         val active = state == Call.STATE_ACTIVE
+        val activeOrHeld = active || state == Call.STATE_HOLDING
         answerButton.visibility = if (state == Call.STATE_RINGING) View.VISIBLE else View.GONE
         controlsRow.visibility = if (active) View.VISIBLE else View.GONE
+        controlsRow2.visibility = if (activeOrHeld) View.VISIBLE else View.GONE
         if (!active && dialpadView.visibility == View.VISIBLE) {
             dialpadView.visibility = View.GONE
             keypadButton.isChecked = false
+        }
+
+        holdButton.isChecked = state == Call.STATE_HOLDING
+        recordButton.isChecked = CallManager.manualRecording
+
+        // 2本目の着信(キャッチホン)
+        val second = CallManager.incomingSecondCall
+        if (second != null) {
+            secondCallBar.visibility = View.VISIBLE
+            secondCallerText.text = getString(
+                R.string.second_incoming,
+                ContactHelper.displayName(this, CallManager.numberOf(second))
+            )
+        } else {
+            secondCallBar.visibility = View.GONE
+        }
+
+        // 保留中のもう1本との切り替え
+        val held = CallManager.heldCall
+        if (held != null) {
+            swapButton.visibility = View.VISIBLE
+            swapButton.text = getString(
+                R.string.swap_call,
+                ContactHelper.displayName(this, CallManager.numberOf(held))
+            )
+        } else {
+            swapButton.visibility = View.GONE
         }
 
         val audio = CallManager.audioState
@@ -159,9 +222,12 @@ class InCallActivity : AppCompatActivity() {
                 }
             }
             Call.STATE_DIALING -> getString(R.string.state_dialing)
+            Call.STATE_HOLDING -> getString(R.string.state_holding)
             Call.STATE_ACTIVE -> {
                 val base = if (CallManager.isRecording) {
                     getString(R.string.state_recording)
+                } else if (CallManager.manualRecording) {
+                    getString(R.string.state_call_recording)
                 } else {
                     getString(R.string.state_active)
                 }

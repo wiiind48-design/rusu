@@ -45,6 +45,7 @@ class AnsweringInCallService : InCallService() {
 
     private var recorder: MediaRecorder? = null
     private var recordingFile: File? = null
+    private var recordingIsCallRec = false
     private var toneGenerator: ToneGenerator? = null
 
     /** 自動応答で取った通話かどうか。手動応答なら応答メッセージ・録音は行わない。 */
@@ -93,36 +94,106 @@ class AnsweringInCallService : InCallService() {
 
     override fun onCallAdded(call: Call) {
         super.onCallAdded(call)
-        CallManager.currentCall = call
         CallManager.service = this
-        autoAnswered = false
-        greetingStarted = false
-        recordStarted = false
         call.registerCallback(callCallback)
 
-        val ringing = stateOf(call) == Call.STATE_RINGING
-        if (ringing && Prefs.getEnabled(this) && hasRecordPermission()) {
-            val delayMs = Prefs.getAnswerDelaySec(this) * 1000L
-            CallManager.autoAnswerAtMillis = System.currentTimeMillis() + delayMs
-            handler.postDelayed(autoAnswerRunnable, delayMs)
+        if (CallManager.currentCall == null) {
+            CallManager.currentCall = call
+            autoAnswered = false
+            greetingStarted = false
+            recordStarted = false
+            val ringing = stateOf(call) == Call.STATE_RINGING
+            if (ringing && Prefs.getEnabled(this) && hasRecordPermission()) {
+                val delayMs = Prefs.getAnswerDelaySec(this) * 1000L
+                CallManager.autoAnswerAtMillis = System.currentTimeMillis() + delayMs
+                handler.postDelayed(autoAnswerRunnable, delayMs)
+            } else {
+                CallManager.autoAnswerAtMillis = 0
+            }
+            CallManager.notifyChanged()
+            showInCallUi(ringing)
+        } else if (stateOf(call) == Call.STATE_RINGING) {
+            // 通話中の2本目の着信(キャッチホン)。自動応答はしない。
+            CallManager.incomingSecondCall = call
+            CallManager.notifyChanged()
         } else {
-            CallManager.autoAnswerAtMillis = 0
+            // 通話中に新しく発信した場合など。今の通話を保留にして切り替える。
+            CallManager.currentCall?.hold()
+            CallManager.heldCall = CallManager.currentCall
+            CallManager.currentCall = call
+            CallManager.notifyChanged()
         }
-        CallManager.notifyChanged()
-        showInCallUi(ringing)
     }
 
     override fun onCallRemoved(call: Call) {
         super.onCallRemoved(call)
         call.unregisterCallback(callCallback)
-        handler.removeCallbacks(autoAnswerRunnable)
-        handler.removeCallbacks(greetingTimeoutRunnable)
-        stopTts()
-        stopRecordingAndSave(call)
-        cancelIncomingNotification()
-        CallManager.currentCall = null
-        CallManager.autoAnswerAtMillis = 0
-        CallManager.isRecording = false
+        when (call) {
+            CallManager.incomingSecondCall -> {
+                CallManager.incomingSecondCall = null
+                CallManager.notifyChanged()
+            }
+            CallManager.heldCall -> {
+                CallManager.heldCall = null
+                CallManager.notifyChanged()
+            }
+            CallManager.currentCall -> {
+                handler.removeCallbacks(autoAnswerRunnable)
+                handler.removeCallbacks(greetingTimeoutRunnable)
+                stopTts()
+                stopRecordingAndSave(call)
+                cancelIncomingNotification()
+                CallManager.autoAnswerAtMillis = 0
+                // 保留中の通話が残っていればそちらに戻す
+                val held = CallManager.heldCall
+                CallManager.heldCall = null
+                CallManager.currentCall = held
+                if (held != null) {
+                    try {
+                        held.unhold()
+                    } catch (ignored: Exception) {
+                    }
+                }
+                CallManager.notifyChanged()
+            }
+        }
+    }
+
+    // ----- 保留・キャッチホン -----
+
+    fun toggleHold() {
+        val call = CallManager.currentCall ?: return
+        if (stateOf(call) == Call.STATE_HOLDING) call.unhold() else call.hold()
+    }
+
+    fun answerSecondCall() {
+        val second = CallManager.incomingSecondCall ?: return
+        val current = CallManager.currentCall
+        if (CallManager.manualRecording) stopManualRecording()
+        if (current != null && stateOf(current) == Call.STATE_ACTIVE) {
+            current.hold()
+        }
+        CallManager.heldCall = current
+        CallManager.currentCall = second
+        CallManager.incomingSecondCall = null
+        second.answer(VideoProfile.STATE_AUDIO_ONLY)
+        CallManager.notifyChanged()
+    }
+
+    fun rejectSecondCall() {
+        CallManager.incomingSecondCall?.reject(false, null)
+        CallManager.incomingSecondCall = null
+        CallManager.notifyChanged()
+    }
+
+    fun swapCalls() {
+        val held = CallManager.heldCall ?: return
+        val current = CallManager.currentCall
+        if (CallManager.manualRecording) stopManualRecording()
+        current?.hold()
+        held.unhold()
+        CallManager.heldCall = current
+        CallManager.currentCall = held
         CallManager.notifyChanged()
     }
 
@@ -154,17 +225,19 @@ class AnsweringInCallService : InCallService() {
         when (state) {
             Call.STATE_ACTIVE -> {
                 cancelIncomingNotification()
-                if (autoAnswered && !greetingStarted) {
+                if (call == CallManager.currentCall && autoAnswered && !greetingStarted) {
                     greetingStarted = true
                     startAnsweringFlow()
                 }
             }
             Call.STATE_DISCONNECTED -> {
-                handler.removeCallbacks(autoAnswerRunnable)
-                handler.removeCallbacks(greetingTimeoutRunnable)
-                stopTts()
-                stopRecordingAndSave(call)
-                cancelIncomingNotification()
+                if (call == CallManager.currentCall) {
+                    handler.removeCallbacks(autoAnswerRunnable)
+                    handler.removeCallbacks(greetingTimeoutRunnable)
+                    stopTts()
+                    stopRecordingAndSave(call)
+                    cancelIncomingNotification()
+                }
             }
         }
         CallManager.notifyChanged()
@@ -249,26 +322,70 @@ class AnsweringInCallService : InCallService() {
         val call = CallManager.currentCall ?: return
         if (stateOf(call) != Call.STATE_ACTIVE) return
         if (!hasRecordPermission()) return
+        if (startRecorderForCall(call, callRecording = false, maxMs = Prefs.getMaxRecordSec(this) * 1000) {
+                CallManager.currentCall?.disconnect()
+            }
+        ) {
+            CallManager.isRecording = true
+            CallManager.notifyChanged()
+        }
+    }
 
-        val number = call.details?.handle?.schemeSpecificPart ?: ""
-        val file = MessageStore.newFile(this, number)
+    // ----- 手動の通話録音 -----
+
+    fun startManualRecording(): Boolean {
+        val call = CallManager.currentCall ?: return false
+        if (recorder != null) return false
+        if (stateOf(call) != Call.STATE_ACTIVE) return false
+        if (!hasRecordPermission()) return false
+        val ok = startRecorderForCall(call, callRecording = true, maxMs = 60 * 60 * 1000) {
+            stopManualRecording()
+        }
+        if (ok) {
+            CallManager.manualRecording = true
+            CallManager.notifyChanged()
+        }
+        return ok
+    }
+
+    fun stopManualRecording() {
+        if (!CallManager.manualRecording) return
+        val call = CallManager.currentCall
+        finishRecorder(CallManager.numberOf(call))
+        CallManager.manualRecording = false
+        CallManager.notifyChanged()
+    }
+
+    private fun startRecorderForCall(
+        call: Call,
+        callRecording: Boolean,
+        maxMs: Int,
+        onMaxReached: () -> Unit
+    ): Boolean {
+        val number = CallManager.numberOf(call)
+        val file = MessageStore.newFile(this, number, callRecording)
         val sources = intArrayOf(
             MediaRecorder.AudioSource.VOICE_RECOGNITION,
             MediaRecorder.AudioSource.MIC
         )
         for (source in sources) {
-            if (tryStartRecorder(source, file)) {
+            if (tryStartRecorder(source, file, maxMs, onMaxReached)) {
                 recordingFile = file
-                CallManager.isRecording = true
-                CallManager.notifyChanged()
-                return
+                recordingIsCallRec = callRecording
+                return true
             }
         }
         Log.e(TAG, "could not start recorder with any audio source")
         file.delete()
+        return false
     }
 
-    private fun tryStartRecorder(audioSource: Int, file: File): Boolean {
+    private fun tryStartRecorder(
+        audioSource: Int,
+        file: File,
+        maxMs: Int,
+        onMaxReached: () -> Unit
+    ): Boolean {
         var r: MediaRecorder? = null
         return try {
             r = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
@@ -282,11 +399,11 @@ class AnsweringInCallService : InCallService() {
             r.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
             r.setAudioEncodingBitRate(96_000)
             r.setAudioSamplingRate(44_100)
-            r.setMaxDuration(Prefs.getMaxRecordSec(this) * 1000)
+            r.setMaxDuration(maxMs)
             r.setOutputFile(file.absolutePath)
             r.setOnInfoListener { _, what, _ ->
                 if (what == MediaRecorder.MEDIA_RECORDER_INFO_MAX_DURATION_REACHED) {
-                    CallManager.currentCall?.disconnect()
+                    onMaxReached()
                 }
             }
             r.prepare()
@@ -304,9 +421,15 @@ class AnsweringInCallService : InCallService() {
     }
 
     private fun stopRecordingAndSave(call: Call) {
+        finishRecorder(CallManager.numberOf(call))
+        CallManager.isRecording = false
+        CallManager.manualRecording = false
+    }
+
+    /** 録音を停止して保存し、通知を出す。録音していなければ何もしない。 */
+    private fun finishRecorder(number: String) {
         val r = recorder ?: return
         recorder = null
-        CallManager.isRecording = false
         var ok = true
         try {
             r.stop()
@@ -325,8 +448,10 @@ class AnsweringInCallService : InCallService() {
             file.delete()
             return
         }
-        val number = call.details?.handle?.schemeSpecificPart ?: ""
-        showNewMessageNotification(ContactHelper.displayName(this, number))
+        showNewMessageNotification(
+            ContactHelper.displayName(this, number),
+            recordingIsCallRec
+        )
     }
 
     private fun hasRecordPermission(): Boolean =
@@ -370,7 +495,7 @@ class AnsweringInCallService : InCallService() {
         notificationManager().cancel(NOTIFY_ID_INCOMING)
     }
 
-    private fun showNewMessageNotification(number: String) {
+    private fun showNewMessageNotification(number: String, callRecording: Boolean = false) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
             ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) !=
             PackageManager.PERMISSION_GRANTED
@@ -383,10 +508,20 @@ class AnsweringInCallService : InCallService() {
             this, 1, intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
+        val title = if (callRecording) {
+            getString(R.string.call_rec_saved_title)
+        } else {
+            getString(R.string.new_message_title)
+        }
+        val text = if (callRecording) {
+            getString(R.string.call_rec_saved_text, number)
+        } else {
+            getString(R.string.new_message_text, number)
+        }
         val notification = Notification.Builder(this, CHANNEL_MESSAGES)
             .setSmallIcon(R.drawable.ic_notification)
-            .setContentTitle(getString(R.string.new_message_title))
-            .setContentText(getString(R.string.new_message_text, number))
+            .setContentTitle(title)
+            .setContentText(text)
             .setContentIntent(pending)
             .setAutoCancel(true)
             .build()

@@ -28,6 +28,10 @@
             android:name=".SettingsActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".BlockedNumbersActivity"
+            android:exported="false" />
+
         <!-- デフォルトの電話アプリになるために必要な DIAL ハンドラ -->
         <activity
             android:name=".DialerActivity"

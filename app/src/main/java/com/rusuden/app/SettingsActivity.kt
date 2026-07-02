@@ -1,5 +1,6 @@
 package com.rusuden.app
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -16,6 +17,10 @@ class SettingsActivity : AppCompatActivity() {
         val maxEdit = findViewById<EditText>(R.id.edit_max_record)
         val greetingEdit = findViewById<EditText>(R.id.edit_greeting)
         val saveButton = findViewById<Button>(R.id.button_save)
+
+        findViewById<Button>(R.id.button_blocked).setOnClickListener {
+            startActivity(Intent(this, BlockedNumbersActivity::class.java))
+        }
 
         delayEdit.setText(Prefs.getAnswerDelaySec(this).toString())
         maxEdit.setText(Prefs.getMaxRecordSec(this).toString())

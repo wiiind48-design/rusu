@@ -18,8 +18,21 @@ object CallManager {
     @Volatile
     var autoAnswerAtMillis: Long = 0
 
+    /** 保留中のもう1本の通話(キャッチホン)。 */
+    @Volatile
+    var heldCall: Call? = null
+
+    /** 通話中にかかってきた2本目の着信。 */
+    @Volatile
+    var incomingSecondCall: Call? = null
+
+    /** 留守番電話としての録音中かどうか。 */
     @Volatile
     var isRecording: Boolean = false
+
+    /** ユーザー操作による通話録音中かどうか。 */
+    @Volatile
+    var manualRecording: Boolean = false
 
     @Volatile
     var audioState: CallAudioState? = null
@@ -45,4 +58,7 @@ object CallManager {
 
     fun callNumber(): String =
         currentCall?.details?.handle?.schemeSpecificPart ?: ""
+
+    fun numberOf(call: Call?): String =
+        call?.details?.handle?.schemeSpecificPart ?: ""
 }

@@ -7,9 +7,49 @@ import android.net.Uri
 import android.provider.ContactsContract
 import androidx.core.content.ContextCompat
 
+data class ContactEntry(
+    val name: String,
+    val number: String,
+    val starred: Boolean
+)
+
 object ContactHelper {
 
     private val cache = HashMap<String, String?>()
+
+    fun hasContactsPermission(context: Context): Boolean =
+        ContextCompat.checkSelfPermission(context, Manifest.permission.READ_CONTACTS) ==
+            PackageManager.PERMISSION_GRANTED
+
+    /** 全連絡先(電話番号付き)を、お気に入り→名前順で読み込む。 */
+    fun loadContacts(context: Context): List<ContactEntry> {
+        if (!hasContactsPermission(context)) return emptyList()
+        val result = mutableListOf<ContactEntry>()
+        val seen = HashSet<String>()
+        try {
+            context.contentResolver.query(
+                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                arrayOf(
+                    ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
+                    ContactsContract.CommonDataKinds.Phone.NUMBER,
+                    ContactsContract.CommonDataKinds.Phone.STARRED
+                ),
+                null, null,
+                "${ContactsContract.CommonDataKinds.Phone.STARRED} DESC, " +
+                    "${ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME} COLLATE NOCASE ASC"
+            )?.use { cursor ->
+                while (cursor.moveToNext()) {
+                    val name = cursor.getString(0) ?: continue
+                    val number = cursor.getString(1) ?: continue
+                    val key = "$name|${number.replace(Regex("[^0-9+]"), "")}"
+                    if (!seen.add(key)) continue
+                    result.add(ContactEntry(name, number, cursor.getInt(2) != 0))
+                }
+            }
+        } catch (ignored: Exception) {
+        }
+        return result
+    }
 
     /** 電話番号から連絡先の名前を引く。見つからない・権限がない場合は null。 */
     fun lookupName(context: Context, number: String): String? {

@@ -40,7 +40,12 @@ class MessageAdapter(
         val context = holder.itemView.context
 
         holder.number.text = ContactHelper.displayName(context, item.number)
-        holder.date.text = dateFormat.format(Date(item.timestamp))
+        val dateStr = dateFormat.format(Date(item.timestamp))
+        holder.date.text = if (item.isCallRecording) {
+            "${context.getString(R.string.label_call_recording)} · $dateStr"
+        } else {
+            dateStr
+        }
         val totalSec = item.durationMs / 1000
         holder.duration.text = String.format(Locale.JAPAN, "%d:%02d", totalSec / 60, totalSec % 60)
 

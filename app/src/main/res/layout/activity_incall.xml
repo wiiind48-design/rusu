@@ -39,6 +39,55 @@
         android:textColor="?android:attr/textColorSecondary"
         android:textSize="20sp" />
 
+    <LinearLayout
+        android:id="@+id/second_call_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/text_second_caller"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button_answer_second"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/answer_green"
+                android:text="@string/answer_hold" />
+
+            <Button
+                android:id="@+id/button_reject_second"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/hangup_red"
+                android:text="@string/reject_second" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button_swap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:visibility="gone" />
+
     <View
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -84,6 +133,32 @@
             android:layout_weight="1"
             android:textOff="@string/keypad"
             android:textOn="@string/keypad" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/controls_row2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <ToggleButton
+            android:id="@+id/button_hold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textOff="@string/hold"
+            android:textOn="@string/hold_on" />
+
+        <ToggleButton
+            android:id="@+id/button_record"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:textOff="@string/record"
+            android:textOn="@string/record_on" />
     </LinearLayout>
 
     <Button

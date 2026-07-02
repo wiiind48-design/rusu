@@ -52,6 +52,16 @@
     <string name="speaker">スピーカー</string>
     <string name="speaker_on">スピーカー中</string>
     <string name="keypad">キーパッド</string>
+    <string name="hold">保留</string>
+    <string name="hold_on">保留中</string>
+    <string name="record">録音</string>
+    <string name="record_on">録音中</string>
+    <string name="state_holding">保留中</string>
+    <string name="state_call_recording">通話中(録音中)</string>
+    <string name="second_incoming">%s から着信中</string>
+    <string name="answer_hold">保留して応答</string>
+    <string name="reject_second">拒否</string>
+    <string name="swap_call">%s に切り替え</string>
 
     <!-- ダイヤル画面 -->
     <string name="dial_hint">電話番号を入力</string>
@@ -60,10 +70,34 @@
     <string name="history_title">発着信履歴</string>
     <string name="no_history">履歴はありません</string>
     <string name="backspace">⌫</string>
+    <string name="tab_history">履歴</string>
+    <string name="tab_contacts">連絡先</string>
+    <string name="search_hint">名前・番号で検索</string>
+    <string name="no_contacts">連絡先がありません(連絡先の許可が必要です)</string>
+
+    <!-- 着信拒否 -->
+    <string name="blocked_title">着信拒否リスト</string>
+    <string name="blocked_description">ここに追加した番号からの着信は、鳴らずに自動的にブロックされます。</string>
+    <string name="blocked_add">追加</string>
+    <string name="blocked_add_hint">拒否する電話番号</string>
+    <string name="blocked_empty">拒否している番号はありません</string>
+    <string name="blocked_error">追加できませんでした</string>
+    <string name="blocked_unavailable">この端末では着信拒否リストを利用できません</string>
+    <string name="blocked_remove_title">拒否を解除</string>
+    <string name="blocked_remove_message">%s の着信拒否を解除しますか?</string>
+    <string name="blocked_remove_ok">解除</string>
+    <string name="block_title">着信拒否</string>
+    <string name="block_message">%s を着信拒否リストに追加しますか?</string>
+    <string name="block_ok">拒否リストに追加</string>
+    <string name="block_done">着信拒否リストに追加しました</string>
+    <string name="button_blocked_list">着信拒否リストを開く</string>
 
     <!-- 通知 -->
     <string name="channel_incoming">着信</string>
     <string name="channel_messages">新しい伝言</string>
     <string name="new_message_title">新しい伝言があります</string>
     <string name="new_message_text">%s さんからの伝言を録音しました</string>
+    <string name="call_rec_saved_title">通話を録音しました</string>
+    <string name="call_rec_saved_text">%s さんとの通話録音を保存しました</string>
+    <string name="label_call_recording">通話録音</string>
 </resources>

@@ -14,7 +14,8 @@ import java.util.Locale
 
 class CallLogAdapter(
     private val onSelect: (CallLogEntry) -> Unit,
-    private val onCall: (CallLogEntry) -> Unit
+    private val onCall: (CallLogEntry) -> Unit,
+    private val onLongPress: (CallLogEntry) -> Unit = {}
 ) : RecyclerView.Adapter<CallLogAdapter.Holder>() {
 
     private val items = mutableListOf<CallLogEntry>()
@@ -55,6 +56,10 @@ class CallLogAdapter(
             }
         )
         holder.itemView.setOnClickListener { onSelect(item) }
+        holder.itemView.setOnLongClickListener {
+            onLongPress(item)
+            true
+        }
         holder.callButton.setOnClickListener { onCall(item) }
     }
 
