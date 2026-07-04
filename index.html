@@ -1,7 +1,10 @@
+<meta charset="utf-8">
 <title>会社員のお金と税金 2026年度版</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
 <style>
 :root {
+  color-scheme: light dark;
   --bg: #F4F6F8;
   --surface: #FFFFFF;
   --ink: #23303E;
@@ -17,26 +20,26 @@
   :root {
     --bg: #141A21;
     --surface: #1B232D;
-    --ink: #E3E9EF;
-    --ink-soft: #98A6B5;
-    --accent: #82ACDF;
-    --accent-strong: #A3C4EA;
+    --ink: #E6ECF2;
+    --ink-soft: #A5B2C0;
+    --accent: #97BEEC;
+    --accent-strong: #BAD4F4;
     --rule: #2B3642;
     --note-bg: #202B37;
-    --chip-bg: #253546;
+    --chip-bg: #2A3B4E;
     --th-bg: #212B36;
   }
 }
 :root[data-theme="dark"] {
   --bg: #141A21;
   --surface: #1B232D;
-  --ink: #E3E9EF;
-  --ink-soft: #98A6B5;
-  --accent: #82ACDF;
-  --accent-strong: #A3C4EA;
+  --ink: #E6ECF2;
+  --ink-soft: #A5B2C0;
+  --accent: #97BEEC;
+  --accent-strong: #BAD4F4;
   --rule: #2B3642;
   --note-bg: #202B37;
-  --chip-bg: #253546;
+  --chip-bg: #2A3B4E;
   --th-bg: #212B36;
 }
 :root[data-theme="light"] {
@@ -66,6 +69,9 @@ body {
   font-feature-settings: "palt";
 }
 .wrap { max-width: 40rem; margin: 0 auto; padding: 0 18px 96px; }
+
+a { color: var(--accent); }
+a:visited { color: var(--accent); }
 
 header.top { padding: 40px 0 8px; }
 .edition {
