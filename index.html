@@ -1,0 +1,1270 @@
+<title>会社員のお金と税金 2026年度版</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --bg: #F4F6F8;
+  --surface: #FFFFFF;
+  --ink: #23303E;
+  --ink-soft: #5B6A7A;
+  --accent: #2E5E9E;
+  --accent-strong: #24497B;
+  --rule: #DDE3E9;
+  --note-bg: #EAF0F5;
+  --chip-bg: #E3ECF6;
+  --th-bg: #EFF3F7;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #141A21;
+    --surface: #1B232D;
+    --ink: #E3E9EF;
+    --ink-soft: #98A6B5;
+    --accent: #82ACDF;
+    --accent-strong: #A3C4EA;
+    --rule: #2B3642;
+    --note-bg: #202B37;
+    --chip-bg: #253546;
+    --th-bg: #212B36;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141A21;
+  --surface: #1B232D;
+  --ink: #E3E9EF;
+  --ink-soft: #98A6B5;
+  --accent: #82ACDF;
+  --accent-strong: #A3C4EA;
+  --rule: #2B3642;
+  --note-bg: #202B37;
+  --chip-bg: #253546;
+  --th-bg: #212B36;
+}
+:root[data-theme="light"] {
+  --bg: #F4F6F8;
+  --surface: #FFFFFF;
+  --ink: #23303E;
+  --ink-soft: #5B6A7A;
+  --accent: #2E5E9E;
+  --accent-strong: #24497B;
+  --rule: #DDE3E9;
+  --note-bg: #EAF0F5;
+  --chip-bg: #E3ECF6;
+  --th-bg: #EFF3F7;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", "BIZ UDPGothic", Meiryo, sans-serif;
+  font-size: 16px;
+  line-height: 1.9;
+  letter-spacing: 0.015em;
+  font-feature-settings: "palt";
+}
+.wrap { max-width: 40rem; margin: 0 auto; padding: 0 18px 96px; }
+
+header.top { padding: 40px 0 8px; }
+.edition {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  padding: 2px 10px;
+  margin-bottom: 14px;
+}
+h1 {
+  font-size: 27px;
+  line-height: 1.4;
+  margin: 0 0 10px;
+  font-weight: 700;
+  text-wrap: balance;
+}
+.lede {
+  color: var(--ink-soft);
+  font-size: 14.5px;
+  margin: 0 0 18px;
+}
+.premise {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin: 0 0 28px;
+}
+.premise b { color: var(--ink); }
+
+nav.toc {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 6px 16px 14px;
+  margin-bottom: 40px;
+}
+nav.toc h2 {
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+  font-weight: 600;
+  margin: 12px 0 6px;
+}
+nav.toc ol { margin: 0; padding: 0; list-style: none; }
+nav.toc li { border-top: 1px solid var(--rule); }
+nav.toc li:first-child { border-top: 0; }
+nav.toc a {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 9px 2px;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 15px;
+}
+nav.toc a:active { color: var(--accent); }
+nav.toc .n {
+  flex: none;
+  width: 1.6em;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+section.cat { margin: 0 0 52px; }
+.cat-head { margin: 0 0 4px; }
+.cat-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--accent);
+  margin: 0 0 2px;
+}
+h2.cat-title {
+  font-size: 21px;
+  line-height: 1.45;
+  margin: 0 0 4px;
+  font-weight: 700;
+  text-wrap: balance;
+}
+.cat-sub { font-size: 13.5px; color: var(--ink-soft); margin: 0 0 16px; }
+
+.entry {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 14px 16px 15px;
+  margin: 0 0 10px;
+}
+.entry h3 {
+  font-size: 16.5px;
+  margin: 0 0 6px;
+  line-height: 1.5;
+  color: var(--accent-strong);
+}
+.entry p { margin: 0 0 8px; font-size: 15px; }
+.entry p:last-child { margin-bottom: 0; }
+.entry .pt { color: var(--ink); }
+.label {
+  display: inline-block;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-strong);
+  background: var(--chip-bg);
+  border-radius: 3px;
+  padding: 1px 7px;
+  margin-right: 7px;
+  vertical-align: 1px;
+}
+
+.note {
+  background: var(--note-bg);
+  border-radius: 8px;
+  padding: 12px 15px;
+  font-size: 13.5px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+  margin: 14px 0 0;
+}
+.note b { color: var(--ink); }
+.note p { margin: 0 0 8px; }
+.note p:last-child { margin-bottom: 0; }
+
+h3.sub {
+  font-size: 16px;
+  margin: 28px 0 10px;
+  padding-left: 10px;
+  border-left: 3px solid var(--accent);
+  line-height: 1.5;
+}
+
+.tablewrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  margin: 0 0 10px;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+}
+th, td {
+  padding: 9px 12px;
+  border-top: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+td.wrapok, th.wrapok { white-space: normal; min-width: 11em; }
+thead th {
+  border-top: 0;
+  background: var(--th-bg);
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+td.num, th.num { text-align: right; }
+tfoot td { font-weight: 700; }
+
+.example {
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 14px 0 10px;
+  font-size: 14.5px;
+}
+.example h4 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+.example p { margin: 0 0 6px; }
+.example p:last-child { margin-bottom: 0; }
+
+.steps { margin: 0; padding: 0 0 0 1.4em; font-size: 14.5px; }
+.steps li { margin-bottom: 8px; }
+
+footer.disc {
+  border-top: 1px solid var(--rule);
+  margin-top: 56px;
+  padding-top: 18px;
+  font-size: 12.5px;
+  color: var(--ink-soft);
+}
+
+a.totop {
+  position: fixed;
+  right: 14px;
+  bottom: 14px;
+  background: var(--accent);
+  color: #fff;
+  text-decoration: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 9px 14px;
+  border-radius: 999px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+:root[data-theme="dark"] a.totop { color: #10161D; }
+@media (prefers-color-scheme: dark) { a.totop { color: #10161D; } }
+:root[data-theme="light"] a.totop { color: #fff; }
+a.totop:focus-visible, nav.toc a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+
+<div class="wrap">
+
+<header class="top" id="toc">
+  <span class="edition">2026年度版</span>
+  <h1>会社員のお金と税金</h1>
+  <p class="lede">給料・生活・住宅・相続・資産運用・控除・給付金 ― 人生でかかわるお金の全体マップ</p>
+  <div class="premise">
+    会社員が一生のうちにかかわる<b>「払うお金（税金・保険料）」「減らせるお金（控除・節税）」「もらえるお金（給付・補助金）」</b>を8つのカテゴリに整理し、巻末に税率表・内訳などの資料編を付けました。金額の例は特に断りがない限り<b>「年収500万円・独身・40歳未満」</b>のめやすです。制度は毎年のように改正されるため、実際の手続き時は最新情報をご確認ください。
+  </div>
+
+  <nav class="toc" aria-label="目次">
+    <h2>本編</h2>
+    <ol>
+      <li><a href="#c1"><span class="n">1</span>毎月の給料から引かれるお金</a></li>
+      <li><a href="#c2"><span class="n">2</span>日常生活・買い物でかかる税金</a></li>
+      <li><a href="#c3"><span class="n">3</span>住宅の購入・保有・売却</a></li>
+      <li><a href="#c4"><span class="n">4</span>相続・贈与にかかわる税金</a></li>
+      <li><a href="#c5"><span class="n">5</span>資産運用・老後に備える制度</a></li>
+      <li><a href="#c6"><span class="n">6</span>節税の柱：控除の一覧</a></li>
+      <li><a href="#c7"><span class="n">7</span>もらえるお金：給付金・手当・補助金</a></li>
+      <li><a href="#c8"><span class="n">8</span>ライフイベント別 お金の早見表</a></li>
+    </ol>
+    <h2>資料編</h2>
+    <ol>
+      <li><a href="#s1"><span class="n">1</span>所得税の速算表</a></li>
+      <li><a href="#s2"><span class="n">2</span>社会保険料の全体像</a></li>
+      <li><a href="#s3"><span class="n">3</span>年収別 手取り早見表</a></li>
+      <li><a href="#s4"><span class="n">4</span>不動産購入の諸費用</a></li>
+      <li><a href="#s5"><span class="n">5</span>相続税・贈与税の速算表</a></li>
+      <li><a href="#s6"><span class="n">6</span>ふるさと納税 控除上限のめやす</a></li>
+      <li><a href="#s7"><span class="n">7</span>高額療養費制度</a></li>
+      <li><a href="#s8"><span class="n">8</span>出産・育休でもらえるお金</a></li>
+      <li><a href="#s9"><span class="n">9</span>退職・失業後のお金</a></li>
+      <li><a href="#s10"><span class="n">10</span>生命保険料控除の内訳</a></li>
+    </ol>
+  </nav>
+</header>
+
+<!-- ============ 1 ============ -->
+<section class="cat" id="c1">
+  <div class="cat-head">
+    <p class="cat-eyebrow">カテゴリ 1</p>
+    <h2 class="cat-title">毎月の給料から引かれるお金（源泉徴収・天引き）</h2>
+  </div>
+
+  <div class="entry">
+    <h3>所得税</h3>
+    <p>課税所得に5〜45%の累進課税＋復興特別所得税2.1%（→<a href="#s1">資料1の速算表</a>）。毎月源泉徴収され年末調整で精算。</p>
+    <p class="pt"><span class="label">ポイント</span>年収500万円なら年約13万円。「額面」ではなく各種控除後の課税所得にかかる。</p>
+  </div>
+  <div class="entry">
+    <h3>住民税</h3>
+    <p>前年所得の10%（市区町村民税6%＋都道府県民税4%）＋均等割・森林環境税 約5,000円/年。</p>
+    <p class="pt"><span class="label">ポイント</span>年収500万円なら年約24万円。前年所得ベースのため入社2年目の6月から天引き開始。退職時の一括徴収に注意。</p>
+  </div>
+  <div class="entry">
+    <h3>健康保険料</h3>
+    <p>標準報酬月額の約10%を会社と折半→本人負担約5%。ボーナスからも徴収。</p>
+    <p class="pt"><span class="label">ポイント</span>年収500万円なら年約25万円。医療費3割負担・高額療養費・傷病手当金の財源。</p>
+  </div>
+  <div class="entry">
+    <h3>厚生年金保険料</h3>
+    <p>18.3%を会社と折半→本人負担9.15%。</p>
+    <p class="pt"><span class="label">ポイント</span>年収500万円なら年約46万円。国民年金に上乗せの「2階部分」。老齢・障害・遺族年金の財源。</p>
+  </div>
+  <div class="entry">
+    <h3>介護保険料</h3>
+    <p>約1.6%を会社と折半→本人負担約0.8%。40歳になった月から徴収。</p>
+    <p class="pt"><span class="label">ポイント</span>年収500万円なら年約4万円。</p>
+  </div>
+  <div class="entry">
+    <h3>雇用保険料</h3>
+    <p>本人負担は賃金の0.55%。</p>
+    <p class="pt"><span class="label">ポイント</span>年収500万円なら年約2.8万円。失業給付・育休給付・教育訓練給付の財源。</p>
+  </div>
+  <div class="entry">
+    <h3>子ども・子育て支援金</h3>
+    <p>2026年4月から医療保険料に上乗せして徴収。月250円程度（2028年度に月450円程度まで段階的に増加）。</p>
+    <p class="pt"><span class="label">ポイント</span>児童手当の拡充や「実質手取り10割」育休給付などの財源となる新しい負担。</p>
+  </div>
+  <div class="entry">
+    <h3>労災保険料</h3>
+    <p>全額会社負担（本人負担ゼロ）。</p>
+    <p class="pt"><span class="label">ポイント</span>業務中・通勤中のケガや病気を補償。</p>
+  </div>
+
+  <div class="note">
+    <p>※ 本人負担の社会保険料は合計で<b>額面の約15%</b>（40歳未満14.7%／40歳以上15.5%）。税と合わせると年収500万円で年約110万円が引かれ、<b>手取りは約390万円（78%）</b>。→詳細は<a href="#s2">資料2</a>・<a href="#s3">資料3</a></p>
+    <p>※ 健康保険・介護保険・厚生年金の保険料は「4〜6月の給与（残業代込み）」の平均で決まる標準報酬月額がベース。4〜6月に残業が多いとその後1年間の保険料が高くなる。</p>
+  </div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="cat" id="c2">
+  <div class="cat-head">
+    <p class="cat-eyebrow">カテゴリ 2</p>
+    <h2 class="cat-title">日常生活・買い物でかかる税金</h2>
+  </div>
+
+  <div class="entry">
+    <h3>消費税</h3>
+    <p>標準10%（飲食料品・新聞は軽減税率8%）。</p>
+    <p class="pt"><span class="label">ポイント</span>年間支出250万円なら年約23万円の負担。生涯では1,000万円規模になる大きな税金。</p>
+  </div>
+  <div class="entry">
+    <h3>自動車税（種別割）</h3>
+    <p>排気量に応じ年2.5万〜11万円。毎年5月頃納付。</p>
+    <p class="pt"><span class="label">ポイント</span>例：1.5L超2.0L以下で年36,000円（2019年10月以降登録車）。</p>
+  </div>
+  <div class="entry">
+    <h3>自動車重量税・環境性能割</h3>
+    <p>重量税は車検ごと（自家用1.5t以下で24,600円/2年など）。環境性能割は取得価額の0〜3%。</p>
+    <p class="pt"><span class="label">ポイント</span>エコカーは減免あり。</p>
+  </div>
+  <div class="entry">
+    <h3>ガソリン税（揮発油税等）</h3>
+    <p>1Lあたり約28.7円＋石油石炭税等（2025年12月に暫定税率約25円が廃止）。</p>
+    <p class="pt"><span class="label">ポイント</span>価格に含まれる「隠れた税」。さらに消費税もかかる。</p>
+  </div>
+  <div class="entry">
+    <h3>酒税・たばこ税</h3>
+    <p>ビール350mlに約63円、たばこ1箱に約300円など価格に内包。</p>
+    <p class="pt"><span class="label">ポイント</span>これも価格に含まれる「隠れた税」。</p>
+  </div>
+  <div class="entry">
+    <h3>入湯税・宿泊税など</h3>
+    <p>温泉入浴で150円程度、宿泊税は東京で100〜200円/泊など。</p>
+    <p class="pt"><span class="label">ポイント</span>旅行時に少額かかる。</p>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="cat" id="c3">
+  <div class="cat-head">
+    <p class="cat-eyebrow">カテゴリ 3</p>
+    <h2 class="cat-title">住宅の購入・保有・売却でかかわるお金</h2>
+  </div>
+
+  <div class="entry">
+    <h3>【購入時】印紙税</h3>
+    <p>売買契約書・ローン契約書に貼付。4,000万円の物件なら計2〜3万円。</p>
+    <p class="pt"><span class="label">ポイント</span>契約金額により変動。電子契約なら不要な場合も。</p>
+  </div>
+  <div class="entry">
+    <h3>【購入時】登録免許税</h3>
+    <p>所有権移転・抵当権設定の登記時。評価額×0.1〜2%（住宅は軽減あり）。</p>
+    <p class="pt"><span class="label">ポイント</span>司法書士報酬とあわせて25〜40万円程度。</p>
+  </div>
+  <div class="entry">
+    <h3>【購入時】不動産取得税</h3>
+    <p>固定資産税評価額×3%（軽減適用後は0〜30万円程度になることが多い）。</p>
+    <p class="pt"><span class="label">ポイント</span>購入後数ヶ月〜1年後に納税通知が届く。忘れた頃に来るので資金を残しておく。</p>
+  </div>
+  <div class="entry">
+    <h3>【購入時】消費税</h3>
+    <p>建物価格にのみ10%（土地は非課税）。</p>
+    <p class="pt"><span class="label">ポイント</span>個人間売買の中古住宅は非課税。</p>
+  </div>
+  <div class="entry">
+    <h3>【保有中】固定資産税・都市計画税</h3>
+    <p>評価額×1.4%＋最大0.3%。一般的な戸建・マンションで年10〜20万円。</p>
+    <p class="pt"><span class="label">ポイント</span>新築は3〜5年間半額の特例あり。保有する限り毎年続く。</p>
+  </div>
+  <div class="entry">
+    <h3>【売却時】譲渡所得税</h3>
+    <p>売却益に対し、所有5年超20.315%／5年以下39.63%。</p>
+    <p class="pt"><span class="label">ポイント</span>マイホームは3,000万円特別控除で多くの場合非課税に。</p>
+  </div>
+  <div class="entry">
+    <h3>【優遇】住宅ローン控除</h3>
+    <p>年末ローン残高×0.7%を最長13年、所得税等から控除。借入4,000万円なら初年度約28万円、13年で最大約270万円。</p>
+    <p class="pt"><span class="label">ポイント</span>初年度のみ確定申告（2年目以降は年末調整）。省エネ性能で借入上限が変わる。</p>
+  </div>
+  <div class="entry">
+    <h3>【優遇】住宅取得資金の贈与非課税</h3>
+    <p>親・祖父母からの住宅資金贈与は最大1,000万円（省エネ住宅、他は500万円）まで非課税。</p>
+    <p class="pt"><span class="label">ポイント</span>暦年贈与110万円と併用可。適用期限に注意。</p>
+  </div>
+
+  <div class="note">
+    <p>※ 購入時の諸費用合計は中古で物件価格の7〜10%、新築で3〜6%が目安（4,000万円の中古なら約300万円）。→内訳は<a href="#s4">資料4</a></p>
+  </div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section class="cat" id="c4">
+  <div class="cat-head">
+    <p class="cat-eyebrow">カテゴリ 4</p>
+    <h2 class="cat-title">相続・贈与にかかわる税金</h2>
+  </div>
+
+  <div class="entry">
+    <h3>相続税</h3>
+    <p>基礎控除「3,000万円＋600万円×法定相続人数」を超えた財産に10〜55%（→<a href="#s5">資料5</a>）。相続開始から10ヶ月以内に申告。</p>
+    <p class="pt"><span class="label">具体例</span>遺産5,000万円・子2人なら基礎控除4,200万円を引いた800万円に課税→税額は2人合計約80万円。配偶者は1.6億円まで非課税。小規模宅地等の特例で自宅土地は評価額を最大80%減。</p>
+  </div>
+  <div class="entry">
+    <h3>贈与税（暦年課税）</h3>
+    <p>1人あたり年110万円まで非課税。超えた分に10〜55%（→<a href="#s5">資料5</a>）。</p>
+    <p class="pt"><span class="label">具体例</span>年200万円の贈与なら税額9万円。亡くなる前7年以内の贈与は相続財産に持ち戻し（2024年以降段階的に3年→7年へ延長中）。</p>
+  </div>
+  <div class="entry">
+    <h3>相続時精算課税</h3>
+    <p>累計2,500万円まで贈与時非課税（相続時に精算）＋年110万円の基礎控除（2024年〜）。</p>
+    <p class="pt"><span class="label">ポイント</span>一度選択すると暦年課税に戻れない。</p>
+  </div>
+  <div class="entry">
+    <h3>教育資金の一括贈与</h3>
+    <p>祖父母等から30歳未満の子・孫へ1,500万円まで非課税。</p>
+    <p class="pt"><span class="label">ポイント</span>専用口座の開設が必要。適用期限に注意。</p>
+  </div>
+  <div class="entry">
+    <h3>生命保険の非課税枠</h3>
+    <p>死亡保険金は「500万円×法定相続人数」まで非課税。</p>
+    <p class="pt"><span class="label">具体例</span>相続人3人なら1,500万円。現金より保険で残す方が有利になる典型例。</p>
+  </div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section class="cat" id="c5">
+  <div class="cat-head">
+    <p class="cat-eyebrow">カテゴリ 5</p>
+    <h2 class="cat-title">資産運用・老後に備えるお得な制度</h2>
+  </div>
+
+  <div class="entry">
+    <h3>新NISA</h3>
+    <p>年360万円（つみたて枠120万＋成長枠240万）、生涯1,800万円まで運用益が無期限非課税。</p>
+    <p class="pt"><span class="label">具体例</span>月3万円を年利5%で30年積み立てると約2,500万円（元本1,080万円）。利益約1,400万円が非課税＝約290万円の節税。</p>
+  </div>
+  <div class="entry">
+    <h3>iDeCo</h3>
+    <p>掛金が全額所得控除。会社員は月2.3万円まで（企業年金ありは月2万円、上限は今後引き上げ予定）。運用益も非課税。</p>
+    <p class="pt"><span class="label">具体例</span>月2.3万円拠出・年収500万円なら毎年約5.5万円税金が安くなる。60歳まで引き出せない点に注意。</p>
+  </div>
+  <div class="entry">
+    <h3>企業型DC・企業年金</h3>
+    <p>会社が掛金を拠出。マッチング拠出できる会社も。</p>
+    <p class="pt"><span class="label">ポイント</span>転職時は移換手続きを忘れずに（放置すると手数料だけ引かれる）。</p>
+  </div>
+  <div class="entry">
+    <h3>特定口座（課税口座）</h3>
+    <p>NISA枠を超えた投資はこちら。利益・配当に20.315%課税。</p>
+    <p class="pt"><span class="label">ポイント</span>「源泉徴収あり」なら確定申告不要。</p>
+  </div>
+  <div class="entry">
+    <h3>配当金の課税方式の選択</h3>
+    <p>上場株の配当は「申告不要（20.315%）」のほか「総合課税」を選べる（譲渡益は分離のみ）。総合課税なら配当控除10%が使え、課税所得695万円以下なら実効税率が約7.2〜17.2%に下がり有利。</p>
+    <p class="pt"><span class="label">ポイント</span>2023年分から所得税と住民税で別々の方式は選べなくなった。会社員の社会保険料には影響しないが、国保加入者（退職後など）は保険料が上がる場合あり。</p>
+  </div>
+  <div class="entry">
+    <h3>財形貯蓄</h3>
+    <p>給与天引き。住宅・年金財形は元利550万円まで利子非課税。</p>
+    <p class="pt"><span class="label">ポイント</span>勤務先に制度があれば。</p>
+  </div>
+  <div class="entry">
+    <h3>退職金</h3>
+    <p>退職所得控除：勤続20年まで年40万円、超過分は年70万円。勤続38年なら2,860万円まで非課税。</p>
+    <p class="pt"><span class="label">ポイント</span>受け取り方（一時金／年金）で税額が変わる。</p>
+  </div>
+  <div class="entry">
+    <h3>公的年金</h3>
+    <p>会社員の平均的な受給額は月14〜16万円程度（基礎＋厚生）。繰下げで最大84%増額。</p>
+    <p class="pt"><span class="label">ポイント</span>年金にも税・保険料がかかるが公的年金等控除で軽減。</p>
+  </div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section class="cat" id="c6">
+  <div class="cat-head">
+    <p class="cat-eyebrow">カテゴリ 6</p>
+    <h2 class="cat-title">節税の柱：控除の一覧（年末調整・確定申告）</h2>
+  </div>
+
+  <div class="entry">
+    <h3>基礎控除</h3>
+    <p>原則58万円（2025年改正で48万→58万円。低所得層は最大95万円）。</p>
+    <p class="pt"><span class="label">ポイント</span>全員に自動適用。</p>
+  </div>
+  <div class="entry">
+    <h3>給与所得控除</h3>
+    <p>給与収入に応じ最低65万円〜195万円。会社員の「経費」に相当。</p>
+    <p class="pt"><span class="label">ポイント</span>年収500万円なら144万円。自動適用。</p>
+  </div>
+  <div class="entry">
+    <h3>社会保険料控除</h3>
+    <p>天引きされた保険料の全額（年収500万円なら約73万円）。</p>
+    <p class="pt"><span class="label">ポイント</span>年末調整で自動適用。家族の分を払った場合も対象。</p>
+  </div>
+  <div class="entry">
+    <h3>配偶者控除・配偶者特別控除</h3>
+    <p>最大38万円。配偶者の年収160万円程度まで段階的に適用（2025年改正）。</p>
+    <p class="pt"><span class="label">ポイント</span>年末調整で申告。</p>
+  </div>
+  <div class="entry">
+    <h3>扶養控除</h3>
+    <p>16歳以上の扶養親族1人につき38万円（19〜22歳は63万円）。</p>
+    <p class="pt"><span class="label">具体例</span>大学生の子で税率20%なら年約12.6万円の節税。仕送りしている親も対象になり得る。</p>
+  </div>
+  <div class="entry">
+    <h3>生命保険料控除</h3>
+    <p>「一般生命」「介護医療」「個人年金」の3枠×各最大4万円＝所得税最大12万円（住民税は各2.8万円・計7万円まで）。→<a href="#s10">資料10</a></p>
+    <p class="pt"><span class="label">具体例</span>各枠とも年間保険料8万円で控除額MAX。税率20%なら3枠フルで年約3.1万円の節税。秋に届く控除証明書を年末調整で提出。</p>
+  </div>
+  <div class="entry">
+    <h3>地震保険料控除</h3>
+    <p>最大5万円。</p>
+    <p class="pt"><span class="label">ポイント</span>控除証明書を年末調整で提出。</p>
+  </div>
+  <div class="entry">
+    <h3>医療費控除</h3>
+    <p>家族全員の年間医療費が10万円を超えた分（上限200万円）。</p>
+    <p class="pt"><span class="label">具体例</span>医療費30万円なら20万円×税率20%＝約4万円戻る。確定申告が必要。市販薬中心なら「セルフメディケーション税制」（1.2万円超）と選択制。</p>
+  </div>
+  <div class="entry">
+    <h3>ふるさと納税（寄附金控除）</h3>
+    <p>実質自己負担2,000円で寄附額の約3割相当の返礼品。上限は年収・家族構成による（→<a href="#s6">資料6</a>）。</p>
+    <p class="pt"><span class="label">具体例</span>年収500万円・独身なら上限約6.1万円→約1.8万円分の返礼品。5自治体以内なら「ワンストップ特例」で確定申告不要。</p>
+  </div>
+  <div class="entry">
+    <h3>雑損控除</h3>
+    <p>災害・盗難などの損失。</p>
+    <p class="pt"><span class="label">ポイント</span>確定申告が必要。</p>
+  </div>
+  <div class="entry">
+    <h3>住宅ローン控除・配当控除（税額控除）</h3>
+    <p>所得控除と違い税額から直接差し引ける。</p>
+    <p class="pt"><span class="label">ポイント</span>効果が大きい。</p>
+  </div>
+
+  <div class="note">
+    <p>※ 確定申告をした方が得な主なケース：医療費控除／ふるさと納税6自治体以上／住宅ローン控除の初年度／年の途中で退職して年末調整を受けていない場合など。</p>
+  </div>
+</section>
+
+<!-- ============ 7 ============ -->
+<section class="cat" id="c7">
+  <div class="cat-head">
+    <p class="cat-eyebrow">カテゴリ 7</p>
+    <h2 class="cat-title">もらえるお金：給付金・手当・補助金</h2>
+  </div>
+
+  <div class="entry">
+    <h3>児童手当</h3>
+    <p>0〜3歳未満：月15,000円、3歳〜高校生年代：月10,000円、第3子以降は一律月30,000円。所得制限なし。</p>
+    <p class="pt"><span class="label">具体例</span>子1人で総額約230万円（第3子なら約630万円）。申請しないともらえない。出生・転入時に自治体へ。</p>
+  </div>
+  <div class="entry">
+    <h3>出産育児一時金</h3>
+    <p>子ども1人につき50万円。</p>
+    <p class="pt"><span class="label">ポイント</span>直接支払制度で病院へ直接支払われるのが一般的。出産費用の平均は約50万円でほぼ相殺。</p>
+  </div>
+  <div class="entry">
+    <h3>出産手当金・育児休業給付金</h3>
+    <p>産休中は給与の約2/3（月給30万円なら月約20万円）。育休中は67%（181日以降50%）。出生直後の一定期間は上乗せで手取り実質10割（→<a href="#s8">資料8</a>にタイムライン）。</p>
+    <p class="pt"><span class="label">具体例</span>育休中は社会保険料も免除。月給30万円で産休＋育休1年なら合計約325万円受給。</p>
+  </div>
+  <div class="entry">
+    <h3>児童扶養手当（ひとり親）</h3>
+    <p>月最大46,690円＋第2子以降の加算（所得に応じて減額）。</p>
+    <p class="pt"><span class="label">ポイント</span>離婚・死別等でひとり親になったら自治体へ申請。</p>
+  </div>
+  <div class="entry">
+    <h3>高校・大学の無償化</h3>
+    <p>高校授業料は所得制限なしで実質無償（私立は年最大45.7万円まで支援）。大学は子3人以上の多子世帯なら所得制限なしで授業料無償化。</p>
+    <p class="pt"><span class="label">ポイント</span>2025〜2026年に大幅拡充された。申請は学校経由・進学時。</p>
+  </div>
+  <div class="entry">
+    <h3>高額療養費制度</h3>
+    <p>医療費の自己負担に月額上限。年収370〜770万円なら約8〜9万円/月（→<a href="#s7">資料7</a>）。</p>
+    <p class="pt"><span class="label">具体例</span>100万円の手術でも自己負担は約8.7万円。事前に「限度額適用認定証」を取れば窓口払いも上限まで。</p>
+  </div>
+  <div class="entry">
+    <h3>傷病手当金</h3>
+    <p>病気・ケガで連続3日休んだ後の4日目から、給与の約2/3を通算1年6ヶ月まで支給。月給30万円なら月20万円。</p>
+    <p class="pt"><span class="label">ポイント</span>会社員の特権（自営業の国保にはない）。</p>
+  </div>
+  <div class="entry">
+    <h3>失業給付（基本手当）</h3>
+    <p>離職前賃金の50〜80%を90〜330日分。月給30万円・自己都合なら日額約5,900円×90日＝約53万円。</p>
+    <p class="pt"><span class="label">ポイント</span>自己都合退職は約1ヶ月の給付制限あり。</p>
+  </div>
+  <div class="entry">
+    <h3>教育訓練給付</h3>
+    <p>受講費の20%（上限10万円）〜最大80%。</p>
+    <p class="pt"><span class="label">ポイント</span>在職中でも使える。対象講座は厚労省サイトで検索。</p>
+  </div>
+  <div class="entry">
+    <h3>住宅関連の補助金</h3>
+    <p>省エネ住宅の新築で最大160万円など（子育てグリーン住宅支援事業。年度で変わる）。</p>
+    <p class="pt"><span class="label">ポイント</span>自治体独自の補助も要チェック。</p>
+  </div>
+  <div class="entry">
+    <h3>自治体の助成</h3>
+    <p>子ども医療費助成（多くの自治体で高校生まで無料）、不妊治療助成、省エネ家電補助など。</p>
+    <p class="pt"><span class="label">ポイント</span>住んでいる自治体のHPを確認。</p>
+  </div>
+
+  <div class="note">
+    <p>※ 給付金・補助金は原則<b>「申請主義」</b>。知らない・申請しないともらえない。ライフイベントの際は必ず一度調べる習慣を。→出産・育休の詳細は<a href="#s8">資料8</a>、退職・失業後は<a href="#s9">資料9</a>。</p>
+  </div>
+</section>
+
+<!-- ============ 8 ============ -->
+<section class="cat" id="c8">
+  <div class="cat-head">
+    <p class="cat-eyebrow">カテゴリ 8</p>
+    <h2 class="cat-title">ライフイベント別 お金の早見表</h2>
+  </div>
+
+  <div class="entry">
+    <h3>就職</h3>
+    <p><span class="label">払う・注意</span>所得税・住民税（2年目6月〜）・社会保険料の天引き開始。額面の75〜85%が手取り。</p>
+    <p class="pt"><span class="label">使える制度</span>年末調整で控除の申告を忘れずに。NISA・iDeCoは早く始めるほど有利。</p>
+  </div>
+  <div class="entry">
+    <h3>結婚</h3>
+    <p><span class="label">払う・注意</span>配偶者の働き方により配偶者控除（最大38万円）・社会保険の扶養（130万円の壁）が関係。</p>
+    <p class="pt"><span class="label">使える制度</span>自治体によっては結婚新生活支援補助（最大60万円）も。</p>
+  </div>
+  <div class="entry">
+    <h3>出産・子育て</h3>
+    <p><span class="label">払う・注意</span>出産費用約50万円（一時金でほぼ相殺）。教育費は全公立で約800万円、全私立で約2,200万円。</p>
+    <p class="pt"><span class="label">使える制度</span>児童手当（総額約230万円）・育休給付・医療費控除・学資準備（NISA活用）。</p>
+  </div>
+  <div class="entry">
+    <h3>住宅購入</h3>
+    <p><span class="label">払う・注意</span>諸費用は物件の3〜10%（4,000万円で約120〜400万円）＋毎年の固定資産税10〜20万円。</p>
+    <p class="pt"><span class="label">使える制度</span>住宅ローン控除（13年で最大約270万円）、資金贈与の非課税、省エネ補助金。</p>
+  </div>
+  <div class="entry">
+    <h3>転職・退職</h3>
+    <p><span class="label">払う・注意</span>住民税の残額一括徴収に注意。退職金は退職所得控除で税優遇。</p>
+    <p class="pt"><span class="label">使える制度</span>失業給付、確定申告（年末調整を受けていない年）、iDeCo/企業DCの移換。</p>
+  </div>
+  <div class="entry">
+    <h3>病気・ケガ</h3>
+    <p><span class="label">払う・注意</span>医療費の自己負担は高額療養費で月8〜9万円程度が上限（年収500万円前後）。</p>
+    <p class="pt"><span class="label">使える制度</span>高額療養費・傷病手当金・医療費控除の3点セットをまず確認。</p>
+  </div>
+  <div class="entry">
+    <h3>親の介護・相続</h3>
+    <p><span class="label">払う・注意</span>相続税は基礎控除（3,000万円＋600万円×人数）超の場合のみ。申告は10ヶ月以内。</p>
+    <p class="pt"><span class="label">使える制度</span>介護保険サービス（自己負担1〜3割）、高額介護サービス費、小規模宅地の特例。</p>
+  </div>
+  <div class="entry">
+    <h3>老後</h3>
+    <p><span class="label">払う・注意</span>年金にも所得税・住民税・国民健康保険料等がかかる。夫婦の標準的な年金は月約23万円。</p>
+    <p class="pt"><span class="label">使える制度</span>公的年金等控除、退職所得控除、繰下げ受給（最大84%増）、NISA/iDeCoの取り崩し。</p>
+  </div>
+</section>
+
+<!-- ============ 資料編 ============ -->
+<section class="cat" id="s1">
+  <div class="cat-head">
+    <p class="cat-eyebrow">資料編 ― 「いくら？」にすぐ答えるページ</p>
+    <h2 class="cat-title">資料1 所得税の速算表</h2>
+    <p class="cat-sub">課税所得 × 税率 − 控除額</p>
+  </div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>課税所得金額</th><th class="num">税率</th><th class="num">控除額</th><th>計算例（復興税2.1%込み）</th></tr></thead>
+    <tbody>
+      <tr><td>195万円以下</td><td class="num">5%</td><td class="num">0円</td><td>課税所得100万円 → 5万円</td></tr>
+      <tr><td>195万円超〜330万円</td><td class="num">10%</td><td class="num">97,500円</td><td>課税所得225万円 → 約12.8万円</td></tr>
+      <tr><td>330万円超〜695万円</td><td class="num">20%</td><td class="num">427,500円</td><td>課税所得400万円 → 約37.3万円</td></tr>
+      <tr><td>695万円超〜900万円</td><td class="num">23%</td><td class="num">636,000円</td><td>課税所得800万円 → 約120.4万円</td></tr>
+      <tr><td>900万円超〜1,800万円</td><td class="num">33%</td><td class="num">1,536,000円</td><td>課税所得1,200万円 → 約247.8万円</td></tr>
+      <tr><td>1,800万円超〜4,000万円</td><td class="num">40%</td><td class="num">2,796,000円</td><td></td></tr>
+      <tr><td>4,000万円超</td><td class="num">45%</td><td class="num">4,796,000円</td><td></td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p>※ 税額にはさらに復興特別所得税2.1%が上乗せ。住民税は税率一律10%＋均等割等約5,000円。</p></div>
+
+  <div class="example">
+    <h4>計算例：年収500万円（独身・40歳未満）の場合</h4>
+    <p>給与収入500万円 − 給与所得控除144万円 ＝ 給与所得356万円</p>
+    <p>356万円 − 社会保険料控除 約73万円 − 基礎控除58万円 ＝ 課税所得 約225万円</p>
+    <p>所得税：225万円 × 10% − 9.75万円 ＝ 12.75万円 ×1.021 ≒ 約13万円 ／ 住民税：約24.5万円</p>
+    <p>→ 年収に対する所得税の負担率は実は<b>約2.6%</b>。「税率10%」でも課税所得が圧縮されるため。</p>
+  </div>
+</section>
+
+<section class="cat" id="s2">
+  <div class="cat-head">
+    <p class="cat-eyebrow">資料編</p>
+    <h2 class="cat-title">資料2 社会保険料の全体像</h2>
+    <p class="cat-sub">本人負担は給料の約15%（40歳以上：合計 約15.5%）</p>
+  </div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>保険</th><th class="num">料率（全体）</th><th class="num">本人負担</th><th class="num">年収500万円の年額</th><th class="wrapok">何のための保険料か</th></tr></thead>
+    <tbody>
+      <tr><td>厚生年金保険料</td><td class="num">18.30%</td><td class="num">9.15%</td><td class="num">約45.8万円</td><td class="wrapok">老齢・障害・遺族年金</td></tr>
+      <tr><td>健康保険料</td><td class="num">約9.9%</td><td class="num">約4.96%</td><td class="num">約24.8万円</td><td class="wrapok">医療費3割負担・高額療養費・傷病手当金</td></tr>
+      <tr><td>介護保険料（40歳〜）</td><td class="num">約1.6%</td><td class="num">約0.80%</td><td class="num">約4.0万円</td><td class="wrapok">介護サービス（利用は原則65歳〜）</td></tr>
+      <tr><td>雇用保険料</td><td class="num">約1.45%</td><td class="num">0.55%</td><td class="num">約2.8万円</td><td class="wrapok">失業給付・育休給付・教育訓練給付</td></tr>
+      <tr><td>労災保険料</td><td class="num">0.3%程度</td><td class="num">0%（全額会社）</td><td class="num">0円</td><td class="wrapok">労災の治療費・休業補償</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>合計</td><td class="num">約31%</td><td class="num">約15.5%</td><td class="num">約77万円</td><td class="wrapok">会社も同額程度を負担している</td></tr>
+    </tfoot>
+  </table></div>
+  <div class="note">
+    <p>※ 40歳未満の本人負担は約14.7%（介護保険料なし）。</p>
+    <p>※ 料率は2026年度・協会けんぽ（東京都）のめやす。健康保険は都道府県・健保組合により異なる。</p>
+    <p>※ 健康保険・介護・厚生年金は「4〜6月の給与の平均」で決まる標準報酬月額×料率で計算（毎年9月に改定）。雇用保険だけは毎月の実際の給与×料率。</p>
+  </div>
+</section>
+
+<section class="cat" id="s3">
+  <div class="cat-head">
+    <p class="cat-eyebrow">資料編</p>
+    <h2 class="cat-title">資料3 年収別 手取り早見表</h2>
+    <p class="cat-sub">独身・40歳未満のめやす。年収500万円なら手取り約391万円（78%）＝社会保険料約73万円＋住民税約24万円＋所得税約13万円が引かれる。</p>
+  </div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th class="num">額面年収</th><th class="num">社会保険料</th><th class="num">所得税</th><th class="num">住民税</th><th class="num">手取り</th><th class="num">手取り率</th></tr></thead>
+    <tbody>
+      <tr><td class="num">300万円</td><td class="num">約44万円</td><td class="num">約5.5万円</td><td class="num">約12万円</td><td class="num">約238万円</td><td class="num">79%</td></tr>
+      <tr><td class="num">400万円</td><td class="num">約58万円</td><td class="num">約8.5万円</td><td class="num">約18万円</td><td class="num">約315万円</td><td class="num">79%</td></tr>
+      <tr><td class="num">500万円</td><td class="num">約73万円</td><td class="num">約13万円</td><td class="num">約24万円</td><td class="num">約390万円</td><td class="num">78%</td></tr>
+      <tr><td class="num">600万円</td><td class="num">約87万円</td><td class="num">約20万円</td><td class="num">約31万円</td><td class="num">約462万円</td><td class="num">77%</td></tr>
+      <tr><td class="num">700万円</td><td class="num">約100万円</td><td class="num">約31万円</td><td class="num">約38万円</td><td class="num">約531万円</td><td class="num">76%</td></tr>
+      <tr><td class="num">800万円</td><td class="num">約113万円</td><td class="num">約46万円</td><td class="num">約46万円</td><td class="num">約595万円</td><td class="num">74%</td></tr>
+      <tr><td class="num">1,000万円</td><td class="num">約130万円</td><td class="num">約80万円</td><td class="num">約62万円</td><td class="num">約728万円</td><td class="num">73%</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p>※ 扶養家族・各種控除・居住地により変動。年収が上がるほど所得税の伸びが大きい（累進課税）一方、社会保険料は上限があるため頭打ちになる。</p></div>
+</section>
+
+<section class="cat" id="s4">
+  <div class="cat-head">
+    <p class="cat-eyebrow">資料編</p>
+    <h2 class="cat-title">資料4 不動産購入の諸費用</h2>
+    <p class="cat-sub">例：中古マンション4,000万円・借入4,000万円 → 諸費用 合計約295万円（物件価格の約7.4%）</p>
+  </div>
+
+  <div class="entry">
+    <h3>仲介手数料 ― 約139万円</h3>
+    <p>物件価格×3%＋6万円＋消費税。</p>
+    <p class="pt"><span class="label">備考</span>新築（売主から直接購入）ならゼロ。</p>
+  </div>
+  <div class="entry">
+    <h3>住宅ローン事務手数料 ― 約88万円</h3>
+    <p>借入額×2.2%が主流。</p>
+    <p class="pt"><span class="label">備考</span>定率型でなく定額型（3〜6万円）＋保証料の銀行も。</p>
+  </div>
+  <div class="entry">
+    <h3>登録免許税・司法書士報酬 ― 約30万円</h3>
+    <p>登記の税金＋専門家報酬。</p>
+    <p class="pt"><span class="label">備考</span>住宅用は軽減税率適用後の金額。</p>
+  </div>
+  <div class="entry">
+    <h3>不動産取得税 ― 0〜30万円</h3>
+    <p>評価額×3%（軽減後）。</p>
+    <p class="pt"><span class="label">備考</span>築年数・面積の要件で大幅軽減。数ヶ月後に通知が来る。</p>
+  </div>
+  <div class="entry">
+    <h3>火災・地震保険料 ― 約10万円</h3>
+    <p>5年契約の場合。</p>
+    <p class="pt"><span class="label">備考</span>補償内容で大きく変わる。</p>
+  </div>
+  <div class="entry">
+    <h3>固定資産税等の清算金 ― 約10万円</h3>
+    <p>引渡日以降の分を日割で売主に支払う。</p>
+    <p class="pt"><span class="label">備考</span>マンションは管理費・修繕積立金も清算。</p>
+  </div>
+  <div class="entry">
+    <h3>印紙税 ― 約3万円</h3>
+    <p>売買契約書＋ローン契約書。</p>
+    <p class="pt"><span class="label">備考</span>電子契約なら不要な場合も。</p>
+  </div>
+
+  <div class="note">
+    <p>※ 合計約295万円（物件価格の約7.4%）。＋引越し代・家具家電も忘れずに。</p>
+    <p>※ 新築マンション（仲介手数料なし）なら合計は物件価格の約3〜5%、新築戸建・中古は7〜10%が目安。頭金とは別に現金で用意しておくのが基本。</p>
+    <p>※ <b>不動産取得税の軽減のしくみ</b>：税率は本則4%→住宅・土地は3%に軽減（2027年3月末まで）。建物は評価額から1,200万円控除（長期優良住宅は1,300万円、中古は築年に応じ最大1,200万円。新耐震基準適合が条件）。土地は「評価額×1/2×3%」から45,000円か面積按分の計算額の高い方を控除。この結果、一般的なマイホームでは申告すれば0円〜少額で済むことが多い。</p>
+  </div>
+</section>
+
+<section class="cat" id="s5">
+  <div class="cat-head">
+    <p class="cat-eyebrow">資料編</p>
+    <h2 class="cat-title">資料5 相続税・贈与税の速算表</h2>
+  </div>
+
+  <h3 class="sub">相続税の速算表</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>法定相続分に応ずる取得金額</th><th class="num">税率</th><th class="num">控除額</th></tr></thead>
+    <tbody>
+      <tr><td>1,000万円以下</td><td class="num">10%</td><td class="num">−</td></tr>
+      <tr><td>3,000万円以下</td><td class="num">15%</td><td class="num">50万円</td></tr>
+      <tr><td>5,000万円以下</td><td class="num">20%</td><td class="num">200万円</td></tr>
+      <tr><td>1億円以下</td><td class="num">30%</td><td class="num">700万円</td></tr>
+      <tr><td>2億円以下</td><td class="num">40%</td><td class="num">1,700万円</td></tr>
+      <tr><td>3億円以下</td><td class="num">45%</td><td class="num">2,700万円</td></tr>
+      <tr><td>6億円以下</td><td class="num">50%</td><td class="num">4,200万円</td></tr>
+      <tr><td>6億円超</td><td class="num">55%</td><td class="num">7,200万円</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">贈与税の速算表（18歳以上が親・祖父母から）</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>基礎控除110万円を引いた後の額</th><th class="num">税率</th><th class="num">控除額</th></tr></thead>
+    <tbody>
+      <tr><td>200万円以下</td><td class="num">10%</td><td class="num">−</td></tr>
+      <tr><td>400万円以下</td><td class="num">15%</td><td class="num">10万円</td></tr>
+      <tr><td>600万円以下</td><td class="num">20%</td><td class="num">30万円</td></tr>
+      <tr><td>1,000万円以下</td><td class="num">30%</td><td class="num">90万円</td></tr>
+      <tr><td>1,500万円以下</td><td class="num">40%</td><td class="num">190万円</td></tr>
+      <tr><td>3,000万円以下</td><td class="num">45%</td><td class="num">265万円</td></tr>
+      <tr><td>4,500万円以下</td><td class="num">50%</td><td class="num">415万円</td></tr>
+      <tr><td>4,500万円超</td><td class="num">55%</td><td class="num">640万円</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="example">
+    <h4>相続税の計算例：遺産5,000万円・相続人は子2人</h4>
+    <p>基礎控除 ＝ 3,000万円 ＋ 600万円 × 2人 ＝ 4,200万円 → 課税対象 ＝ 5,000万円 − 4,200万円 ＝ 800万円</p>
+    <p>法定相続分で分けると子1人あたり400万円 → 400万円 × 10% ＝ 40万円/人</p>
+    <p>→ 相続税は2人合計 <b>約80万円</b>（遺産5,000万円に対して実質1.6%。基礎控除内＝遺産4,200万円以下なら申告も納税も不要）</p>
+  </div>
+
+  <h3 class="sub">相続税額の早見表 ― 遺産総額と家族構成で「結局いくら払うか」（相続人全員の合計・概算）</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th class="num">遺産総額</th><th class="num">配偶者＋子1人</th><th class="num">配偶者＋子2人</th><th class="num">配偶者＋子3人</th><th class="num">子1人のみ</th><th class="num">子2人のみ</th><th class="num">子3人のみ</th></tr></thead>
+    <tbody>
+      <tr><td class="num">4,000万円</td><td class="num">0円</td><td class="num">0円</td><td class="num">0円</td><td class="num">40万円</td><td class="num">0円</td><td class="num">0円</td></tr>
+      <tr><td class="num">5,000万円</td><td class="num">40万円</td><td class="num">10万円</td><td class="num">0円</td><td class="num">160万円</td><td class="num">80万円</td><td class="num">20万円</td></tr>
+      <tr><td class="num">6,000万円</td><td class="num">90万円</td><td class="num">60万円</td><td class="num">30万円</td><td class="num">310万円</td><td class="num">180万円</td><td class="num">120万円</td></tr>
+      <tr><td class="num">8,000万円</td><td class="num">235万円</td><td class="num">175万円</td><td class="num">138万円</td><td class="num">680万円</td><td class="num">470万円</td><td class="num">330万円</td></tr>
+      <tr><td class="num">1億円</td><td class="num">385万円</td><td class="num">315万円</td><td class="num">263万円</td><td class="num">1,220万円</td><td class="num">770万円</td><td class="num">630万円</td></tr>
+      <tr><td class="num">1.5億円</td><td class="num">920万円</td><td class="num">748万円</td><td class="num">665万円</td><td class="num">2,860万円</td><td class="num">1,840万円</td><td class="num">1,440万円</td></tr>
+      <tr><td class="num">2億円</td><td class="num">1,670万円</td><td class="num">1,350万円</td><td class="num">1,218万円</td><td class="num">4,860万円</td><td class="num">3,340万円</td><td class="num">2,460万円</td></tr>
+      <tr><td class="num">3億円</td><td class="num">3,460万円</td><td class="num">2,860万円</td><td class="num">2,540万円</td><td class="num">9,180万円</td><td class="num">6,920万円</td><td class="num">5,460万円</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="example">
+    <h4>この早見表はどう計算している？（相続税の計算4ステップ）</h4>
+    <ol class="steps">
+      <li>遺産総額 − 基礎控除（3,000万円＋600万円×法定相続人数）＝ 課税遺産総額</li>
+      <li>課税遺産総額を「法定相続分」で分けたと仮定する（配偶者1/2、残り1/2を子で均等に分ける）</li>
+      <li>各人の仮の取得額それぞれに速算表を適用し、全員分を合計 ＝ 相続税の総額</li>
+      <li>その総額を「実際に相続した割合」で按分して各自が納税。配偶者の分は「税額軽減」で1.6億円まで実質0円になる</li>
+    </ol>
+    <p>例：遺産1億円・配偶者＋子2人 → 基礎控除4,800万円を引いた5,200万円を、配偶者2,600万円・子1,300万円×2に仮に分ける →配偶者(2,600万×15%−50万=340万)＋子(1,300万×15%−50万=145万)×2 ＝ 総額630万円 →配偶者が1/2相続なら配偶者分315万円は税額軽減でゼロになり、実際の納税は子2人の315万円だけ。上の表の「配偶者＋子」の欄はこの軽減適用後の金額。</p>
+  </div>
+
+  <h3 class="sub">相続税の主な控除・特例 ― 使えるものを全部使ってから税額を計算する</h3>
+
+  <div class="entry">
+    <h3>基礎控除</h3>
+    <p>3,000万円＋600万円×法定相続人数。</p>
+    <p class="pt"><span class="label">ポイント</span>相続人2人なら4,200万円、3人なら4,800万円。これ以下なら申告も納税も不要。</p>
+  </div>
+  <div class="entry">
+    <h3>配偶者の税額軽減</h3>
+    <p>1.6億円 または 法定相続分のどちらか多い方まで非課税。</p>
+    <p class="pt"><span class="label">ポイント</span>適用には申告が必要。配偶者に寄せすぎると次の相続（二次相続）で子の税負担が重くなる点に注意。</p>
+  </div>
+  <div class="entry">
+    <h3>小規模宅地等の特例</h3>
+    <p>自宅の土地330㎡まで評価額を80%減額。</p>
+    <p class="pt"><span class="label">ポイント</span>配偶者や同居親族が相続する場合など。評価5,000万円の土地が1,000万円として計算される強力な特例。要申告。</p>
+  </div>
+  <div class="entry">
+    <h3>生命保険金の非課税枠</h3>
+    <p>500万円×法定相続人数。</p>
+    <p class="pt"><span class="label">ポイント</span>死亡退職金にも同じ枠が別にある。相続人3人なら保険1,500万円＋退職金1,500万円まで非課税。</p>
+  </div>
+  <div class="entry">
+    <h3>未成年者控除</h3>
+    <p>（18歳−年齢）×10万円を税額から控除。</p>
+    <p class="pt"><span class="label">ポイント</span>相続人が未成年の場合。</p>
+  </div>
+  <div class="entry">
+    <h3>障害者控除</h3>
+    <p>（85歳−年齢）×10万円（特別障害者は20万円）を税額から控除。</p>
+    <p class="pt"><span class="label">ポイント</span>相続人が障害者の場合。</p>
+  </div>
+  <div class="entry">
+    <h3>相次相続控除</h3>
+    <p>10年以内に相続が続いた場合、前回払った相続税の一部を控除。</p>
+    <p class="pt"><span class="label">ポイント</span>祖父→父→子と短期間で相続が続いたときの二重課税を防ぐ。</p>
+  </div>
+  <div class="entry">
+    <h3>債務・葬式費用の控除</h3>
+    <p>借入金・未払税金・葬式費用は遺産総額から差し引ける。</p>
+    <p class="pt"><span class="label">ポイント</span>香典返しや法要（初七日等）の費用は対象外。</p>
+  </div>
+
+  <div class="note">
+    <p>※ 一般的な家庭（遺産が自宅＋預貯金）では、基礎控除＋小規模宅地等の特例＋配偶者の税額軽減で相続税ゼロになるケースが多い。ただし特例はどれも「申告してはじめて適用」なので、ゼロでも申告が必要な場合がある。</p>
+  </div>
+</section>
+
+<section class="cat" id="s6">
+  <div class="cat-head">
+    <p class="cat-eyebrow">資料編</p>
+    <h2 class="cat-title">資料6 ふるさと納税 控除上限額のめやす</h2>
+    <p class="cat-sub">自己負担2,000円で済む寄附額</p>
+  </div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th class="num">額面年収</th><th class="num">独身・共働き</th><th class="num">夫婦（配偶者を扶養）</th><th class="num">夫婦＋子1人（大学生）</th></tr></thead>
+    <tbody>
+      <tr><td class="num">300万円</td><td class="num">28,000円</td><td class="num">19,000円</td><td class="num">11,000円</td></tr>
+      <tr><td class="num">400万円</td><td class="num">42,000円</td><td class="num">33,000円</td><td class="num">25,000円</td></tr>
+      <tr><td class="num">500万円</td><td class="num">61,000円</td><td class="num">49,000円</td><td class="num">40,000円</td></tr>
+      <tr><td class="num">600万円</td><td class="num">77,000円</td><td class="num">69,000円</td><td class="num">60,000円</td></tr>
+      <tr><td class="num">700万円</td><td class="num">108,000円</td><td class="num">86,000円</td><td class="num">78,000円</td></tr>
+      <tr><td class="num">800万円</td><td class="num">129,000円</td><td class="num">120,000円</td><td class="num">110,000円</td></tr>
+      <tr><td class="num">1,000万円</td><td class="num">180,000円</td><td class="num">166,000円</td><td class="num">157,000円</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p>※ 住宅ローン控除・iDeCo・医療費控除を使うと上限は下がる。正確な金額は各ポータルサイトのシミュレーターで要確認。上限内なら「寄附額−2,000円」が翌年の税金から控除され、返礼品（寄附額の約3割）が実質もらえる。</p></div>
+</section>
+
+<section class="cat" id="s7">
+  <div class="cat-head">
+    <p class="cat-eyebrow">資料編</p>
+    <h2 class="cat-title">資料7 高額療養費制度</h2>
+    <p class="cat-sub">1ヶ月の自己負担上限（70歳未満）</p>
+  </div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>年収のめやす</th><th class="wrapok">自己負担上限額（月）</th><th class="num">医療費100万円の場合</th></tr></thead>
+    <tbody>
+      <tr><td>約1,160万円〜</td><td class="wrapok">252,600円＋(医療費−842,000円)×1%</td><td class="num">約26万円</td></tr>
+      <tr><td>約770万〜1,160万円</td><td class="wrapok">167,400円＋(医療費−558,000円)×1%</td><td class="num">約17.2万円</td></tr>
+      <tr><td>約370万〜770万円</td><td class="wrapok">80,100円＋(医療費−267,000円)×1%</td><td class="num">約8.7万円</td></tr>
+      <tr><td>〜約370万円</td><td class="wrapok">57,600円（定額）</td><td class="num">5.76万円</td></tr>
+      <tr><td>住民税非課税世帯</td><td class="wrapok">35,400円（定額）</td><td class="num">3.54万円</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note"><p>※ 直近12ヶ月で3回以上上限に達すると4回目から「多数回該当」でさらに下がる（年収370〜770万円なら44,400円）。差額ベッド代・先進医療・食事代は対象外。民間医療保険を検討する前にまずこの制度を前提に必要額を考えるのが合理的。</p></div>
+
+  <h3 class="sub">医療費の窓口負担割合（療養の給付）</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>年齢</th><th class="num">窓口負担</th><th class="wrapok">備考</th></tr></thead>
+    <tbody>
+      <tr><td>未就学児（小学校入学前）</td><td class="num">2割</td><td class="wrapok">自治体の子ども医療費助成で実質0円の地域が多い</td></tr>
+      <tr><td>小学生〜69歳</td><td class="num">3割</td><td class="wrapok">会社員本人・家族とも</td></tr>
+      <tr><td>70〜74歳</td><td class="num">2割</td><td class="wrapok">現役並み所得者は3割</td></tr>
+      <tr><td>75歳以上（後期高齢者）</td><td class="num">1割</td><td class="wrapok">一定以上の所得者は2割、現役並み所得者は3割</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section class="cat" id="s8">
+  <div class="cat-head">
+    <p class="cat-eyebrow">資料編</p>
+    <h2 class="cat-title">資料8 出産・育休でもらえるお金</h2>
+    <p class="cat-sub">時系列でみる（月給30万円の例）</p>
+  </div>
+
+  <div class="entry">
+    <h3>産休：産前42日＋産後56日</h3>
+    <p><b>出産手当金（健康保険）</b>― 標準報酬日額の2/3。</p>
+    <p class="pt"><span class="label">月給30万円</span>日額約6,700円 → 期間合計 約65万円</p>
+  </div>
+  <div class="entry">
+    <h3>出産時</h3>
+    <p><b>出産育児一時金</b>― 1児につき50万円。</p>
+    <p class="pt"><span class="label">月給30万円</span>50万円（出産費用の平均約50万円とほぼ相殺）</p>
+  </div>
+  <div class="entry">
+    <h3>育休 開始〜180日</h3>
+    <p><b>育児休業給付金（雇用保険）</b>― 賃金の67%（非課税）。</p>
+    <p class="pt"><span class="label">月給30万円</span>月約20万円</p>
+  </div>
+  <div class="entry">
+    <h3>育休 181日〜（最長2歳まで）</h3>
+    <p><b>育児休業給付金</b>― 賃金の50%。</p>
+    <p class="pt"><span class="label">月給30万円</span>月約15万円</p>
+  </div>
+  <div class="entry">
+    <h3>出生後8週以内の育休 最大28日間</h3>
+    <p><b>出生後休業支援給付（2025年4月新設）</b>― 67%＋13%＝80%（手取り実質10割）。</p>
+    <p class="pt"><span class="label">条件</span>両親とも14日以上取得等が要件</p>
+  </div>
+  <div class="entry">
+    <h3>父親：出生後8週以内に最大4週</h3>
+    <p><b>産後パパ育休＋出生時育児休業給付</b>― 67%（上記の上乗せ対象）。</p>
+    <p class="pt"><span class="label">月給30万円</span>28日で約22万円。2回に分割OK</p>
+  </div>
+  <div class="entry">
+    <h3>産休・育休の全期間</h3>
+    <p><b>社会保険料の免除</b>― 本人・会社負担とも免除。</p>
+    <p class="pt"><span class="label">月給30万円</span>月約4.4万円の天引きがゼロに（年金記録は減らない）</p>
+  </div>
+
+  <div class="note">
+    <p>※ 給付金はすべて非課税（翌年の住民税も増えない）。月給30万円で産休＋育休1年の合計例：出産手当金約65万円＋一時金50万円＋育休給付約210万円＝<b>約325万円</b>。ただし住民税は前年所得分の請求が続く点に注意。申請はすべて会社経由が基本なので、妊娠がわかったら早めに人事へ相談を。</p>
+  </div>
+</section>
+
+<section class="cat" id="s9">
+  <div class="cat-head">
+    <p class="cat-eyebrow">資料編</p>
+    <h2 class="cat-title">資料9 退職・失業後にもらえるお金／払うお金</h2>
+  </div>
+
+  <h3 class="sub">失業給付（基本手当）の給付日数</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>離職理由</th><th class="num">勤続10年未満</th><th class="num">10〜20年</th><th class="num">20年以上</th></tr></thead>
+    <tbody>
+      <tr><td>自己都合退職</td><td class="num">90日</td><td class="num">120日</td><td class="num">150日</td></tr>
+      <tr><td>会社都合（例：45〜59歳）</td><td class="num">180〜270日</td><td class="num">270日</td><td class="num">330日</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note">
+    <p>※ 受給要件：自己都合は離職前2年間に被保険者期間が通算12ヶ月以上、会社都合は離職前1年間に6ヶ月以上。</p>
+    <p>※ 会社都合（倒産・解雇等）は年齢・勤続で90〜330日。自己都合でも「正当な理由」（介護・体調・配偶者の転勤等）があれば会社都合並みになる場合がある。</p>
+  </div>
+
+  <h3 class="sub">退職後に関係する制度一覧</h3>
+
+  <div class="entry">
+    <h3>失業給付（基本手当）</h3>
+    <p>離職前6ヶ月の賃金日額の50〜80%。月給30万円なら日額約5,900円（月約17.7万円）。</p>
+    <p class="pt"><span class="label">ポイント</span>自己都合は待期7日＋給付制限1ヶ月（2025年から短縮）。ハローワークで求職申込が必要。</p>
+  </div>
+  <div class="entry">
+    <h3>再就職手当</h3>
+    <p>早く再就職すると残日数の60〜70%を一括支給。残90日×日額5,900円×70%＝約37万円。</p>
+    <p class="pt"><span class="label">ポイント</span>「もらい切るより早く決める」方が得な設計。</p>
+  </div>
+  <div class="entry">
+    <h3>教育訓練給付</h3>
+    <p>離職後も1年以内なら対象。受講費の20〜80%。</p>
+    <p class="pt"><span class="label">ポイント</span>専門実践教育訓練なら最大年56万円×最長4年。</p>
+  </div>
+  <div class="entry">
+    <h3>退職金の税優遇</h3>
+    <p>退職所得控除：勤続10年400万円／20年800万円／30年1,500万円／38年2,060万円まで非課税。超過分も1/2にしか課税されない。</p>
+    <p class="pt"><span class="label">具体例</span>勤続30年・退職金2,000万円なら課税は(2,000万−1,500万)×1/2＝250万円分のみ→税額約25万円。</p>
+  </div>
+  <div class="entry">
+    <h3>健康保険の選択</h3>
+    <p>①任意継続（2年・全額自己負担で月約3万円〜上限あり）②国民健康保険 ③家族の扶養に入る（保険料ゼロ）。</p>
+    <p class="pt"><span class="label">ポイント</span>3択を必ず比較。扶養に入れるなら最優先。退職後20日以内など期限に注意。</p>
+  </div>
+  <div class="entry">
+    <h3>国民年金への切替</h3>
+    <p>厚生年金→国民年金（月17,920円・2026年度）。退職で収入がない場合は免除・納付猶予制度あり。</p>
+    <p class="pt"><span class="label">ポイント</span>免除期間も年金額に一部反映される。未納だけは避ける。</p>
+  </div>
+  <div class="entry">
+    <h3>住民税の請求</h3>
+    <p>前年所得に課税されるため、無収入でも前年分（年収500万円なら約24万円）の請求が来る。</p>
+    <p class="pt"><span class="label">ポイント</span>退職金から一括徴収か普通徴収（自分で納付）を選ぶ。資金を残しておく。</p>
+  </div>
+  <div class="entry">
+    <h3>傷病手当金の継続給付</h3>
+    <p>在職中から受給していれば退職後も通算1年6ヶ月まで継続可。</p>
+    <p class="pt"><span class="label">ポイント</span>退職日に出勤すると継続できない等、条件が厳密なので事前確認。</p>
+  </div>
+  <div class="entry">
+    <h3>60〜65歳：高年齢雇用継続給付</h3>
+    <p>再雇用等で賃金が75%未満に低下した場合、賃金の最大10%を支給。</p>
+    <p class="pt"><span class="label">ポイント</span>2025年4月から縮小（15%→10%）。</p>
+  </div>
+  <div class="entry">
+    <h3>65歳以上：高年齢求職者給付金</h3>
+    <p>基本手当の代わりに30〜50日分を一時金で支給。年金と併給できる。</p>
+    <p class="pt"><span class="label">ポイント</span>65歳前後どちらで辞めるかで受給額が変わる。</p>
+  </div>
+
+  <div class="note">
+    <p>※ <b>退職後にやることの順番</b>：①健康保険の切替（20日以内）→②年金の切替（14日以内）→③ハローワークで失業給付の手続き→④翌年、確定申告（年末調整を受けていないため税金が戻ることが多い）。</p>
+  </div>
+
+  <h3 class="sub">退職して収入ゼロになった場合の1年目の負担（前年の年収500万円・独身の例）</h3>
+
+  <div class="entry">
+    <h3>住民税（前年所得分）― 約24万円</h3>
+    <p>前年の所得に課税されるため、収入ゼロでも請求が来る。</p>
+    <p class="pt"><span class="label">軽減する方法</span>減免は災害・生活困窮など限定的。分割納付は市役所に相談可。</p>
+  </div>
+  <div class="entry">
+    <h3>国民健康保険料 ― 約45万円</h3>
+    <p>前年所得ベースで計算（自治体により差が大きい）。</p>
+    <p class="pt"><span class="label">軽減する方法</span>会社都合・雇止め等の退職なら「非自発的失業者の軽減」で前年給与所得を3割として計算→約15万円程度に。任意継続（約35万円・上限あり）や家族の扶養（0円）とも比較。</p>
+  </div>
+  <div class="entry">
+    <h3>国民年金保険料 ― 約21.5万円</h3>
+    <p>月17,920円×12ヶ月（2026年度）。</p>
+    <p class="pt"><span class="label">軽減する方法</span>失業を理由に全額免除・猶予の申請が可能（免除でも将来の年金額に1/2反映）。</p>
+  </div>
+  <div class="entry">
+    <h3>所得税 ― 0円</h3>
+    <p>収入がなければかからない。</p>
+    <p class="pt"><span class="label">ポイント</span>むしろ在職中の源泉徴収分が確定申告で戻ってくることが多い。</p>
+  </div>
+  <div class="entry">
+    <h3>合計 ― 約90万円</h3>
+    <p>何もしないと1年目はこれだけかかる。</p>
+    <p class="pt"><span class="label">軽減する方法</span>扶養に入る＋年金免除＋国保軽減を使えば約24万円（住民税のみ）まで圧縮できる。</p>
+  </div>
+
+  <div class="note">
+    <p>※ 退職前に「1年目の約90万円」を見込んで資金を確保しておくのが重要。年の途中で再就職すれば、その年の分は年末調整・給与天引きに戻る。</p>
+  </div>
+
+  <h3 class="sub">退職2年目以降の負担（前年の所得が0円になった場合）</h3>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>項目</th><th class="num">年額</th><th class="wrapok">内容・ポイント</th></tr></thead>
+    <tbody>
+      <tr><td>住民税</td><td class="num">0円</td><td class="wrapok">前年の所得が45万円以下なら非課税。1年目の約24万円 → ゼロに。</td></tr>
+      <tr><td>国民健康保険料</td><td class="num">約2万円</td><td class="wrapok">所得割は0円。均等割（年約7万円）も低所得の7割軽減が自動適用。軽減は住民税の申告（所得0円でも）をしておくと確実。</td></tr>
+      <tr><td>国民年金保険料</td><td class="num">0円〜21.5万円</td><td class="wrapok">所得0円なら全額免除の申請がほぼ通る。免除なら支払い0円。免除期間も将来の年金額に1/2反映。あとから10年以内なら追納も可能。</td></tr>
+      <tr><td>所得税</td><td class="num">0円</td><td class="wrapok">収入がなければかからない。</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>合計</td><td class="num">約2万円〜</td><td class="wrapok">1年目の約90万円から激減。「重いのは1年目だけ」と知っておくと資金計画が立てやすい。</td></tr>
+    </tfoot>
+  </table></div>
+
+  <div class="note">
+    <p>※ さらに、会社員の配偶者の扶養に入れれば「健康保険の被扶養者（保険料0円）＋国民年金第3号被保険者（保険料0円）」となり、負担を完全にゼロにできる。ただし失業給付の受給中は日額3,612円以上だと扶養に入れないので、受給終了後に切り替えるのが一般的。</p>
+  </div>
+</section>
+
+<section class="cat" id="s10">
+  <div class="cat-head">
+    <p class="cat-eyebrow">資料編</p>
+    <h2 class="cat-title">資料10 生命保険料控除の内訳</h2>
+    <p class="cat-sub">3つの枠 × 各最大4万円（新制度）</p>
+  </div>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>枠</th><th class="wrapok">対象となる保険</th><th class="num">所得税の控除</th><th class="num">住民税の控除</th></tr></thead>
+    <tbody>
+      <tr><td>一般生命保険料</td><td class="wrapok">死亡保険・収入保障保険など</td><td class="num">最大4万円</td><td class="num">最大2.8万円</td></tr>
+      <tr><td>介護医療保険料</td><td class="wrapok">医療保険・がん保険・介護保険など</td><td class="num">最大4万円</td><td class="num">最大2.8万円</td></tr>
+      <tr><td>個人年金保険料</td><td class="wrapok">税制適格特約付きの個人年金保険</td><td class="num">最大4万円</td><td class="num">最大2.8万円</td></tr>
+    </tbody>
+    <tfoot>
+      <tr><td>合計上限</td><td class="wrapok"></td><td class="num">12万円</td><td class="num wrapok">7万円（2.8万×3＝8.4万にはならない）</td></tr>
+    </tfoot>
+  </table></div>
+
+  <h3 class="sub">所得税（1枠あたり・最大4万円）</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>年間支払保険料</th><th class="wrapok">所得税の控除額</th></tr></thead>
+    <tbody>
+      <tr><td>2万円以下</td><td class="wrapok">支払額の全額</td></tr>
+      <tr><td>2万円超〜4万円</td><td class="wrapok">支払額×1/2＋1万円</td></tr>
+      <tr><td>4万円超〜8万円</td><td class="wrapok">支払額×1/4＋2万円</td></tr>
+      <tr><td>8万円超</td><td class="wrapok">一律4万円（上限）</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3 class="sub">住民税（1枠あたり・最大2.8万円）</h3>
+  <div class="tablewrap"><table>
+    <thead><tr><th>年間支払保険料</th><th class="wrapok">住民税の控除額</th></tr></thead>
+    <tbody>
+      <tr><td>1.2万円以下</td><td class="wrapok">支払額の全額</td></tr>
+      <tr><td>1.2万円超〜3.2万円</td><td class="wrapok">支払額×1/2＋6,000円</td></tr>
+      <tr><td>3.2万円超〜5.6万円</td><td class="wrapok">支払額×1/4＋14,000円</td></tr>
+      <tr><td>5.6万円超</td><td class="wrapok">一律2.8万円（上限）</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="note">
+    <p>※ 2012年以降の契約（新制度）の場合。2011年以前の旧契約は「一般」「個人年金」の2枠×各最大5万円（介護医療枠なし）で、新旧併用時も全体上限は所得税12万円。</p>
+    <p>※ 各枠とも年間保険料8万円で控除額は頭打ち。それ以上払っても控除は増えないため、「節税目的」で保険を増やす意味は薄い。3枠フル活用（控除12万円＋7万円）の節税効果は、税率10%の人で年約1.9万円、20%の人で年約3.1万円。</p>
+  </div>
+</section>
+
+<footer class="disc">
+  【免責】本資料は2026年度（2026年7月時点）の一般的な制度概要をまとめたものです。税率・上限額・適用要件は改正されることがあり、個別の状況により取り扱いが異なります。金額例は概算です。実際の申告・手続きの際は、国税庁・厚生労働省・自治体の最新情報や税理士等の専門家にご確認ください。
+</footer>
+
+</div>
+
+<a class="totop" href="#toc">目次へ ↑</a>
